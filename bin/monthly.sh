@@ -1,0 +1,1 @@
+php ${HOME}/ArWiki/src/RunTask Statistics\\Templates ArabicIdentifiersWikidata

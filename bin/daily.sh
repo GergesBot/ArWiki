@@ -1,0 +1,3 @@
+php ${HOME}/ArWiki/src/RunTask RequestsReviewPages
+php ${HOME}/ArWiki/src/RunTask RequestsReviewEdits
+php ${HOME}/ArWiki/src/RunTask FeaturedContent

@@ -1,0 +1,21 @@
+{
+    "name": "gergesbot/arwiki",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Bot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GergesShamon",
+            "email": "gerges.shamoon.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "wiki-connect/mediawiki-api": "^1.0.6",
+        "monolog/monolog": "^2.9",
+        "rubix/ml": "^2.4"
+    }
+}

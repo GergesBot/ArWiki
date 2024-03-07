@@ -1,0 +1,25 @@
+- name: always
+  schedule: "*/5 * * * *"
+  command: ${HOME}/ArWiki/bin/always.sh
+  image: php8.2
+  emails: onfailure
+- name: hour
+  schedule: "0 */1 * * *"
+  command: ${HOME}/ArWiki/bin/hour.sh
+  image: php8.2
+  emails: onfailure
+- name: daily
+  schedule: "0 1 * * *"
+  command: ${HOME}/ArWiki/bin/daily.sh
+  image: php8.2
+  emails: onfailure
+- name: weekly
+  schedule: "0 0 * * 0"
+  command: ${HOME}/ArWiki/bin/weekly.sh
+  image: php8.2
+  emails: onfailure
+- name: monthly
+  schedule: "0 0 1 * *"
+  command: ${HOME}/ArWiki/bin/monthly.sh
+  image: php8.2
+  emails: onfailure
