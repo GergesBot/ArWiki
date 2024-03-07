@@ -21,12 +21,6 @@ class Templates extends Task
             throw new RuntimeException("Error: The variable ${name} is not known.");
         }
     }
-    private function getPage(string $name): Page {
-        return $this->services->newPageGetter()->getFromTitle($name);
-    }
-    private function getText(Page $page): string {
-        return $page->getRevisions()->getLatest()->getContent()->getData();
-    }
     private function savePage(Page $page, string $text, string $summary = "بوت: تحديث"): void {
         $content = new Content($text);
         $revision = new Revision($content, $page->getPageIdentifier());
@@ -37,7 +31,7 @@ class Templates extends Task
     public function ArabicIdentifiersWikidata(): void {
         $this->running(function() {
             $page = $this->getPage("قالب:معرفات عربية في ويكي بيانات");
-            $text = $this->getText($page);
+            $text = $this->readPage($page);
 
             if (preg_match_all("/\{\{خاصية\|(.*)\}\}/u", $text, $matches)) {
                 $wikibaseQuery = new WikibaseQuery("https://query.wikidata.org/bigdata/namespace/wdq/sparql");
