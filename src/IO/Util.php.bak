@@ -82,7 +82,7 @@ class Util
 
         return $interval->d;
     }
-    public static function getTextFromWikitext(string $text): string {
+    public static function getTextFromWikitext($text) {
         // remove ref
         $text = preg_replace("/<ref([^\/>]*?)>(.+?)<\/ref>/is", "", $text);
         // remove sub templates
