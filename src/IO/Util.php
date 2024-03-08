@@ -82,5 +82,32 @@ class Util
 
         return $interval->d;
     }
-
+    public static function getTextFromWikitext($text) {
+        // remove ref
+        $text = preg_replace("/<ref([^\/>]*?)>(.+?)<\/ref>/is", "", $text);
+        // remove sub templates
+        $text = preg_replace("/\{{2}((?>[^\{\}]+)|(?R))*\}{2}/x", "", $text);
+        // remove files
+        $text = preg_replace("/\[\[(ملف:|File:).*\]\]/u", "", $text);
+        // remove
+        $text = preg_replace("/\[\[(تصنيف:|Category:).*\]\]/u", "", $text);
+        // remove headlines
+        $text = preg_replace("/^={1,6}(.*?)={1,6}$/um", "$1", $text);
+        // remove tables
+        $text = preg_replace("/{\|[\s\S]*?\|}/", "", $text);
+        // remove template
+        $text = preg_replace("/\{\{[\s\S]*?\}\}/", "", $text);
+        // remove html tag include ref tags
+        $text = preg_replace("/<[^>]+>/is", "", $text);
+        // remove all comments
+        $text = preg_replace("/<!--.*?-->/", "", $text);
+        // remove all external links
+        $text = preg_replace("/\[http[^\]]+\]/", "", $text);
+        // replace all wikilinks to be like [from|some text ] to from
+        $text = preg_replace("/\[\[([^\]\|]+?)\|([^\]]+?)\]\]/u", "$2", $text);
+        $text = preg_replace("/\[\[([^\]]+?)\]\]/u", "$1", $text);
+        // remove tables like this "{| |}"
+        $text = preg_replace("/{\|[\s\S]*?\|}/", "", $text);
+        return $text;
+    }
 }
