@@ -55,6 +55,29 @@ class FeaturedContent extends Task
         
         $CountSections = count($this->services->newParser()->parsePage($page->getPageIdentifier())["sections"]);
         
+        // remove cat links
+        $text = preg_replace("/\[\[[^:]*?\]\]/", "", $text);
+        // remove tables
+        $text = preg_replace("/{\|[\s\S]*?\|}/", "", $text);
+        // remove template
+        $text = preg_replace("/\{\{[\s\S]*?\}\}/", "", $text);
+        // remove html tag include ref tags
+        $text = preg_replace("/<[^>]+>/", "", $text);
+        // remove all comments
+        $text = preg_replace("/<!--.*?-->/", "", $text);
+        // remove all external links
+        $text = preg_replace("/\[http[^\]]+\]/", "", $text);
+        // replace all wikilinks to be like [from|some text ] to from
+        $text = preg_replace_callback(
+            "/\[\[(.*?)\|(.*?)\]\]/",
+            function ($matches) {
+                return $matches[1];
+            },
+            $text
+        );
+        // remove tables like this "{| |}"
+        $text = preg_replace("/{\|[\s\S]*?\|}/", "", $text);
+        
         $query1 = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/FeaturedContent1.sql", $options))[0];
         $query2 = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/FeaturedContent2.sql", $options))[0];
         $query3 = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/FeaturedContent3.sql", $options))[0];
