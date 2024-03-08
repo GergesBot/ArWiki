@@ -149,7 +149,7 @@ class FeaturedContent extends Task
         } else {
             $revision = new Revision(new Content($text. "\n# مقالة '''[[".$name."]]''' مرشحة لنيل وسم ال".$tag."، يمكنم الإدلاء بآرائكم والتصويت بما ترونه مناسباً في '''[[ويكيبيديا:ترشيحات المقالات ال".$tag."/".$name."|هذه الصفحة]]'''. --~~~~"),$page->getPageIdentifier());
         }
-        $this->services->newRevisionSaver()->save($revision);
+        $this->services->newRevisionSaver()->save($revision, new EditInfo("بوت: رسالة جديدة", true,  true));
     }
     private function ReviewPageFormat($name) {
         $page = $this->getPage("ويكيبيديا:مراجعة الزملاء/$name");
