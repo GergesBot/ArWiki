@@ -12,7 +12,7 @@ use Exception;
 
 class GrammarlyRepair extends Task
 {
-    
+
     private function SeparatorRepair(string $text): string {
         $replacements = array(
             "/([\p{Arabic}+|\]|\}]),([\p{Arabic}+|\[])/" => "$1، $2",
@@ -27,7 +27,7 @@ class GrammarlyRepair extends Task
         return $str;
     }
     private function Repair(string $text, array $replacements): string {
-        /* It no longer uses a local file, but rather a Wikipedia file 
+        /* It no longer uses a local file, but rather a Wikipedia file
         $replacements = json_decode(Util::ReadFile(FOLDER_JSON . "/replacements.json"));
         */
         $str = $text;
@@ -47,7 +47,7 @@ class GrammarlyRepair extends Task
             $reformedText = $this->Repair($text, $replacements);
             if ($text != $reformedText) {
                 $content = new Content($reformedText);
-                $editInfo = new EditInfo("بوت: تدقيق لغوي", true,  true);
+                $editInfo = new EditInfo("بوت: تدقيق لغوي", true, true);
                 $revision = new Revision($content, $page->getPageIdentifier());
                 $this->services->newRevisionSaver()->save($revision, $editInfo);
                 $this->log->info("grammatical errors were corrected on this page ${name}.");
@@ -56,32 +56,27 @@ class GrammarlyRepair extends Task
             $this->log->info("This is a page $name that the bot is prohibited from modifying ");
         }
     }
-    private function init(){
+    private function init() {
         $replacements = json_decode($this->readPage("MediaWiki:Ar gram errors.json"), true);
         $OFFSET = 0;
-        while (true){
-            $query = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/getPages_GrammarlyRepair.sql", [
-                "LIMIT" => 1000,
-                "OFFSET" => $OFFSET
-            ]));
-            if (empty($query)){
-                break;
+        $query = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/getPages_GrammarlyRepair.sql", [
+            "LIMIT" => 5000,
+            "OFFSET" => $OFFSET
+        ]));
+        if (empty($query)) {
+            break;
+        }
+        $pages = array_column($query, "page_title");
+        foreach ($pages as $page) {
+            try {
+                $this->RunRepair($page, $replacements);
+            } catch (UsageException $error) {
+                $this->log->debug("An unexpected error occurred while I was working on $page", [$error->getRawMessage()]);
             }
-            $pages = array_column($query, "page_title");
-            foreach ($pages as $page) {
-                try {
-                    $this->RunRepair($page, $replacements);
-                } catch (UsageException $error){
-                    $this->log->debug("An unexpected error occurred while I was working on $page", [$error->getRawMessage()]);
-                }
-                
-            }
-            sleep(1);
-            $OFFSET=+1000;
         }
     }
     public function RUN(): void {
-        $this->running(function(){
+        $this->running(function() {
             $this->init();
         });
     }
