@@ -58,14 +58,11 @@ class GrammarlyRepair extends Task
     }
     private function init() {
         $replacements = json_decode($this->readPage("MediaWiki:Ar gram errors.json"), true);
-        $OFFSET = 0;
         $query = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/getPages_GrammarlyRepair.sql", [
             "LIMIT" => 5000,
-            "OFFSET" => $OFFSET
+            "OFFSET" => 0
         ]));
-        if (empty($query)) {
-            break;
-        }
+        
         $pages = array_column($query, "page_title");
         foreach ($pages as $page) {
             try {
