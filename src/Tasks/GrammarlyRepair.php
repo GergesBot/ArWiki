@@ -12,17 +12,19 @@ use Exception;
 
 class GrammarlyRepair extends Task
 {
-
+    private function Regex(string $pattern): string {
+        return "/".$pattern."((?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)(?![\p{M}]))/u";
+    }
     private function SeparatorRepair(string $text): string {
         $replacements = array(
-            "/([\p{Arabic}+|\]|\}]),([\p{Arabic}+|\[])/" => "$1، $2",
-            "/([\p{Arabic}+|\]|\}])،([\p{Arabic}+|\[])/" => "$1، $2",
-            "/([\p{Arabic}+|\]|\}]) ، ([\p{Arabic}+|\[])/" => "$1، $2",
-            "/([\p{Arabic}+|\]|\}]) ،([\p{Arabic}+|\[])/" => "$1، $2"
+            "([\p{Arabic}+|\]|\}]),([\p{Arabic}+|\[])" => "$1، $2",
+            "([\p{Arabic}+|\]|\}])،([\p{Arabic}+|\[])" => "$1، $2",
+            "([\p{Arabic}+|\]|\}]) ، ([\p{Arabic}+|\[])" => "$1، $2",
+            "([\p{Arabic}+|\]|\}]) ،([\p{Arabic}+|\[])" => "$1، $2"
         );
         $str = $text;
         foreach ($replacements as $pattern => $replacement) {
-            $str = preg_replace($pattern."u", $replacement, $str);
+            $str = preg_replace($this->Regex($pattern), $replacement, $str);
         }
         return $str;
     }
@@ -32,7 +34,7 @@ class GrammarlyRepair extends Task
         */
         $str = $text;
         foreach ($replacements as $pattern => $replacement) {
-            $pattern = "/".$pattern."((?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)(?![\p{M}]))/u";
+            $pattern = $this->Regex($pattern);
             if (preg_match_all($pattern, $str, $matches)) {
                 $str = $this->SeparatorRepair($str);
                 $str = preg_replace($pattern, $replacement, $str);
