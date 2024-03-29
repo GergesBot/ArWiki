@@ -15,6 +15,9 @@ class GrammarlyRepair extends Task
     private function Regex(string $pattern): string {
         return $pattern."(?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)(?!.*?\=)";
     }
+    public function allowBots(string $text, string $user): bool {
+        return parent::allowBots($text, $user) && !preg_match("/\{\{لا للأخطاء الإملائية\}\}/u", $text);
+    }
     private function SeparatorRepair(string $text): string {
         $replacements = array(
             "([\p{Arabic}+|\]|\}]),([\p{Arabic}+|\[])" => "$1، $2",
@@ -61,7 +64,7 @@ class GrammarlyRepair extends Task
     private function init() {
         $replacements = json_decode($this->readPage("MediaWiki:Ar gram errors.json"), true);
         $query = $this->query->getArray(Util::ReadFile(FOLDER_SQL . "/getPages_GrammarlyRepair.sql", [
-            "LIMIT" => 50000,
+            "LIMIT" => 5000,
             "OFFSET" => 0
         ]));
         
