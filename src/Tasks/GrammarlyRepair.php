@@ -13,7 +13,7 @@ use Exception;
 class GrammarlyRepair extends Task
 {
     private function Regex(string $pattern): string {
-        return "/".$pattern."((?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)(?![\p{M}]))/u";
+        return $pattern."(?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)";
     }
     private function SeparatorRepair(string $text): string {
         $replacements = array(
@@ -24,7 +24,7 @@ class GrammarlyRepair extends Task
         );
         $str = $text;
         foreach ($replacements as $pattern => $replacement) {
-            $str = preg_replace($this->Regex($pattern), $replacement, $str);
+            $str = Util::replace($this->Regex($pattern), $replacement, $str);
         }
         return $str;
     }
@@ -35,9 +35,9 @@ class GrammarlyRepair extends Task
         $str = $text;
         foreach ($replacements as $pattern => $replacement) {
             $pattern = $this->Regex($pattern);
-            if (preg_match_all($pattern, $str, $matches)) {
+            if (mb_ereg($pattern, $str, $matches)) {
                 $str = $this->SeparatorRepair($str);
-                $str = preg_replace($pattern, $replacement, $str);
+                $str = Util::replace($pattern, $replacement, $str);
             }
         }
         return $str;
