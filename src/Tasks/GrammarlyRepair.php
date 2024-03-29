@@ -13,7 +13,7 @@ use Exception;
 class GrammarlyRepair extends Task
 {
     private function Regex(string $pattern): string {
-        return $pattern."(?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)";
+        return $pattern."(?![^\{]*\})(?![^\[]*\])(?![^<]*<\/.*>)(?!.*?\=)";
     }
     private function SeparatorRepair(string $text): string {
         $replacements = array(
