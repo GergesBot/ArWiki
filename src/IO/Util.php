@@ -110,4 +110,14 @@ class Util
         $text = preg_replace("/{\|[\s\S]*?\|}/", "", $text);
         return $text;
     }
+    public static function replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {
+        mb_regex_encoding('UTF-8');
+        $matches = [];
+        if (mb_ereg($pattern, $string, $matches)) {
+            foreach ($matches as $key => $value) {
+                $replacement = str_replace("$" . $key, $value, $replacement);
+            }
+        }
+        return mb_ereg_replace($pattern, $replacement, $string, $options);
+    }
 }
