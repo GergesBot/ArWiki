@@ -19,7 +19,7 @@
   image: php8.2
   emails: onfailure
 - name: monthly
-  schedule: "0 0 0 * *"
+  schedule: "0 0 1 * *"
   command: ${HOME}/ArWiki/bin/monthly.sh
   image: php8.2
   emails: onfailure
