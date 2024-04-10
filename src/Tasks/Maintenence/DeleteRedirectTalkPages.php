@@ -32,7 +32,6 @@ class DeleteRedirectTalkPages extends Task
             $pages = array_column($query, "page_title");
             foreach ($pages as $page) {
                 $this->delete($page);
-                sleep(500);
             }
         });
     }
