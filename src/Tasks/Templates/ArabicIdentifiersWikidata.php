@@ -1,5 +1,5 @@
 <?php
-namespace Bot\Tasks\Statistics;
+namespace Bot\Tasks\Templates;
 
 use WikiConnect\MediawikiApi\DataModel\Page;
 use WikiConnect\MediawikiApi\DataModel\Content;
@@ -11,24 +11,15 @@ use Bot\Tasks\Task;
 use Exception;
 use RuntimeException;
 
-class Templates extends Task
+class ArabicIdentifiersWikidata extends Task
 {
-    private function getVariable(string $text, string $name): string {
-        if (preg_match("/${name} =(.*)/u", $text, $matches)) {
-            $this->log->info("variable = " .trim($matches[1]));
-            return trim($matches[1]);
-        } else {
-            throw new RuntimeException("Error: The variable ${name} is not known.");
-        }
-    }
     private function savePage(Page $page, string $text, string $summary = "بوت: تحديث"): void {
         $content = new Content($text);
         $revision = new Revision($content, $page->getPageIdentifier());
         $editInfo = new EditInfo($summary, true, true);
         $this->services->newRevisionSaver()->save($revision, $editInfo);
     }
-
-    public function ArabicIdentifiersWikidata(): void {
+    public function init(): void {
         $this->running(function() {
             $page = $this->getPage("قالب:معرفات عربية في ويكي بيانات");
             $text = $this->readPage($page);
@@ -50,9 +41,6 @@ class Templates extends Task
             }
 
         });
-    }
-    private function init(): void {
-        $this->ArabicIdentifiersWikidata();
     }
     public function RUN(): void {
         $this->running(function() {
