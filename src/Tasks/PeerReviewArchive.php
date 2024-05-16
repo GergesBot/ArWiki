@@ -109,6 +109,11 @@ class PeerReviewArchive extends Task
                 $YearMonth = Util::getYearMonth();
                 while (true) {
                     $ArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
+                    if ($ArchivePage->getPageIdentifier()->getId() < 1) {
+                        $newArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
+                        $this->services->newRevisionSaver()->save(new Revision(new Content("{{ويكيبيديا:مراجعة الزملاء/تبويب}}\n{{أرشيف مراجعة الزملاء\n| 1 = ${num}\n}}"),$newArchivePage->getPageIdentifier()), new EditInfo("بوت: إنشاء أرشيف.", true,  true));
+                     }
+                    $ArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
                     $ArchivePageText = $ArchivePage->getRevisions()->getLatest()->getContent()->getData();
                     if (preg_match_all("/\{\{متمز\|(.*)\}\}/", $ArchivePageText, $matches) < 15) {
                         if (strpos($ArchivePageText, $YearMonth) !== false) {
@@ -117,13 +122,6 @@ class PeerReviewArchive extends Task
                             $revision = new Revision(new Content("${ArchivePageText}\n== ${YearMonth} ==\n{{متمز|$name}}"),$ArchivePage->getPageIdentifier());
                         }
                         break;
-                    } else {
-                        if ($ArchivePage->getPageIdentifier()->getId() < 1) {
-                            $_num = $num + 1;
-                            $newArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${_num}");
-                            $this->services->newRevisionSaver()->save(new Revision(new Content("{{ويكيبيديا:مراجعة الزملاء/تبويب}}\n{{أرشيف مراجعة الزملاء\n| 1 = ${_num}\n}}"),$newArchivePage->getPageIdentifier()), new EditInfo("بوت: أرشفة.", true,  true));
-                            
-                        }
                     }
                     $num++;
                 }
