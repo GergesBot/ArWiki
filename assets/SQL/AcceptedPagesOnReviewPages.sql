@@ -10,8 +10,9 @@ where page.page_is_redirect = 0
 and page.page_namespace = 0
 and page_id in (select fp_page_id from flaggedpages where fp_page_id = page_id)
 and page_title in (
-  select pl_title from pagelinks
+  select lt_title from pagelinks 
+  inner join linktarget ON lt_id = pl_target_id
   where pl_from = 3421494
   and pl_from_namespace = 4
-  and pl_namespace = 0
+  and lt_namespace = 0
 );
