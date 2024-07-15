@@ -87,7 +87,7 @@ class MoveRequests extends Task
         $wbFactory = $wikidata->getFactory();
         $wbGeter = $wbFactory->newRevisionGetter();
         $wbSaver = $wbFactory->newRevisionSaver();
-        $wbItem = $getter->getFromId($item);
+        $wbItem = $wbGeter->getFromId($item);
         $wbItem->getContent()->getData()->setLabel("ar" , $newname);
         $wbSaver->save( $wbItem, new EditInfo( 'testing' ) );
         
@@ -111,6 +111,9 @@ class MoveRequests extends Task
             }
         }
         try {
+            if ($sittings["rename-item"]) {
+                $item = $this->getItem($from);
+            }
             if ($sittings["leave-talk"]) {
                 $mover->move($page, $target, $params);
             } else {
@@ -121,7 +124,6 @@ class MoveRequests extends Task
                 }
             }
             if ($sittings["rename-item"]) {
-                $item = $this->getItem($from);
                 if ($item != false) {
                     $this->renameItem($this->getItem($from), $to);
                 }
