@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62279579d2ca67f94ebfef12209d7e44",
+    "content-hash": "368ad620bb464f2fdb0bed89181bffb7",
     "packages": [
         {
             "name": "data-values/data-values",
@@ -1443,7 +1443,779 @@
             "time": "2019-01-21T19:22:34+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "composer/semver",
+            "version": "3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/semver.git",
+                "reference": "c51258e759afdb17f1fd1fe83bc12baaef6309d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c51258e759afdb17f1fd1fe83bc12baaef6309d6",
+                "reference": "c51258e759afdb17f1fd1fe83bc12baaef6309d6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.4",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Semver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "keywords": [
+                "semantic",
+                "semver",
+                "validation",
+                "versioning"
+            ],
+            "support": {
+                "irc": "ircs://irc.libera.chat:6697/composer",
+                "issues": "https://github.com/composer/semver/issues",
+                "source": "https://github.com/composer/semver/tree/3.4.2"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-07-12T11:35:52+00:00"
+        },
+        {
+            "name": "composer/spdx-licenses",
+            "version": "1.5.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/spdx-licenses.git",
+                "reference": "560bdcf8deb88ae5d611c80a2de8ea9d0358cc0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/560bdcf8deb88ae5d611c80a2de8ea9d0358cc0a",
+                "reference": "560bdcf8deb88ae5d611c80a2de8ea9d0358cc0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.55",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Spdx\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "SPDX licenses list and validation library.",
+            "keywords": [
+                "license",
+                "spdx",
+                "validator"
+            ],
+            "support": {
+                "irc": "ircs://irc.libera.chat:6697/composer",
+                "issues": "https://github.com/composer/spdx-licenses/issues",
+                "source": "https://github.com/composer/spdx-licenses/tree/1.5.8"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-20T07:44:33+00:00"
+        },
+        {
+            "name": "data-values/common",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/Common.git",
+                "reference": "844359d1e782884a2b79460a49624d9c08673666"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/Common/zipball/844359d1e782884a2b79460a49624d9c08673666",
+                "reference": "844359d1e782884a2b79460a49624d9c08673666",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "~2.0|~1.0|~0.1",
+                "data-values/interfaces": "~0.2.0|^0.1.5",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Common.php"
+                ],
+                "psr-4": {
+                    "DataValues\\": "src/DataValues/",
+                    "ValueParsers\\": "src/ValueParsers/",
+                    "ValueFormatters\\": "src/ValueFormatters/"
+                },
+                "classmap": [
+                    "tests/ValueParsers"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Contains common implementations of the interfaces defined by DataValuesInterfaces",
+            "homepage": "https://github.com/DataValues/Common",
+            "keywords": [
+                "datavalues",
+                "valueformatters",
+                "valueparsers",
+                "valuevalidators",
+                "wikidata"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/wikidata",
+                "issues": "https://github.com/DataValues/Common/issues",
+                "source": "https://github.com/DataValues/Common/tree/0.4.3"
+            },
+            "time": "2019-06-28T14:23:34+00:00"
+        },
+        {
+            "name": "data-values/geo",
+            "version": "4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/Geo.git",
+                "reference": "1dd742dabb63e211862486259b2cbe0274211bf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/Geo/zipball/1dd742dabb63e211862486259b2cbe0274211bf9",
+                "reference": "1dd742dabb63e211862486259b2cbe0274211bf9",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "^3.0|^2.0|^1.0|~0.1",
+                "data-values/interfaces": "^1.0.0|^0.2.0",
+                "php": ">=7.3",
+                "symfony/polyfill-php80": "^1.18.1"
+            },
+            "require-dev": {
+                "maglnet/composer-require-checker": "^3.0|^2.0",
+                "mediawiki/mediawiki-codesniffer": "^34 || ^35 || ^36 || ^38",
+                "ockcyp/covers-validator": "^1.3.3",
+                "phpmd/phpmd": "^2.9.1",
+                "phpstan/phpstan": "^0.12.68 || ^1.0.0",
+                "phpunit/phpunit": "^9.4.1",
+                "vimeo/psalm": "^4.4.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DataValues\\Geo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "The Wikidata team",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Geographical value objects, parsers and formatters",
+            "homepage": "https://github.com/DataValues/Geo",
+            "keywords": [
+                "Degrees",
+                "Minutes",
+                "coordinate",
+                "coordinates",
+                "datavalues",
+                "dms",
+                "formatters",
+                "geo",
+                "geographical",
+                "latitude",
+                "latlong",
+                "longitude",
+                "parsers",
+                "seconds",
+                "wikidata"
+            ],
+            "support": {
+                "docs": "https://github.com/DataValues/Geo/#usage",
+                "issues": "https://github.com/DataValues/Geo/issues",
+                "source": "https://github.com/DataValues/Geo/tree/4.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/JeroenDeDauw",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-21T14:19:26+00:00"
+        },
+        {
+            "name": "data-values/interfaces",
+            "version": "0.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/Interfaces.git",
+                "reference": "441a5c3c4d1ac8998ee95a0aafbf30e1064ae6f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/Interfaces/zipball/441a5c3c4d1ac8998ee95a0aafbf30e1064ae6f4",
+                "reference": "441a5c3c4d1ac8998ee95a0aafbf30e1064ae6f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8",
+                "wikibase/wikibase-codesniffer": "^0.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Interfaces.php"
+                ],
+                "psr-4": {
+                    "ValueParsers\\": "src/ValueParsers/",
+                    "ValueFormatters\\": "src/ValueFormatters/",
+                    "ValueValidators\\": "src/ValueValidators/"
+                },
+                "classmap": [
+                    "tests/ValueFormatters/ValueFormatterTestBase.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Defines interfaces for ValueParsers, ValueFormatters and ValueValidators",
+            "homepage": "https://github.com/DataValues/Interfaces",
+            "keywords": [
+                "datavalues",
+                "valueformatters",
+                "valueparsers",
+                "valuevalidators",
+                "wikidata"
+            ],
+            "support": {
+                "issues": "https://github.com/DataValues/Interfaces/issues",
+                "source": "https://github.com/DataValues/Interfaces/tree/0.2.5"
+            },
+            "time": "2017-08-09T15:18:46+00:00"
+        },
+        {
+            "name": "data-values/number",
+            "version": "0.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/Number.git",
+                "reference": "524c0a07469949d4c5a53245c5a3edf41a0e540c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/Number/zipball/524c0a07469949d4c5a53245c5a3edf41a0e540c",
+                "reference": "524c0a07469949d4c5a53245c5a3edf41a0e540c",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/common": "1.0.0|~0.4.0|~0.3.0",
+                "data-values/data-values": "~3.0.0|~2.0|~1.0|~0.1",
+                "data-values/interfaces": "~1.0.0|~0.2.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "ext-bcmath": "*",
+                "mediawiki/mediawiki-codesniffer": "34.0.0",
+                "phpunit/phpunit": "~8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Number.php"
+                ],
+                "psr-0": {
+                    "DataValues\\": "src",
+                    "ValueParsers\\": "src",
+                    "ValueFormatters\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Kinzler"
+                },
+                {
+                    "name": "Thiemo Kreuz"
+                }
+            ],
+            "description": "Numerical value objects, parsers and formatters",
+            "homepage": "https://github.com/DataValues/Number",
+            "keywords": [
+                "datavalues",
+                "number",
+                "valueformatters",
+                "valueparsers",
+                "wikidata"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/wikidata",
+                "issues": "https://github.com/wmde/Number/issues",
+                "source": "https://github.com/wmde/Number/tree/0.10.2"
+            },
+            "time": "2021-03-15T13:45:06+00:00"
+        },
+        {
+            "name": "data-values/time",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/Time.git",
+                "reference": "a2bc08e5e51f5940de843d43469dd3f727fb1d29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/Time/zipball/a2bc08e5e51f5940de843d43469dd3f727fb1d29",
+                "reference": "a2bc08e5e51f5940de843d43469dd3f727fb1d29",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/common": "~1.0|~0.4.0|~0.3.0",
+                "data-values/data-values": "~3.0|~2.0|~1.0|~0.1",
+                "data-values/interfaces": "~1.0|~0.2.0",
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "mediawiki/mediawiki-codesniffer": "^39",
+                "phpunit/phpunit": "~8.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DataValues\\": "src",
+                    "ValueParsers\\": "src",
+                    "ValueFormatters\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The Wikidata team",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Time value objects, parsers and formatters",
+            "homepage": "https://github.com/DataValues/Time",
+            "keywords": [
+                "datavalues",
+                "time",
+                "valueformatters",
+                "valueparsers",
+                "wikidata"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/wikidata",
+                "issues": "https://github.com/wmde/Time/issues",
+                "source": "https://github.com/wmde/Time/tree/1.1.2"
+            },
+            "time": "2022-10-24T09:59:00+00:00"
+        },
+        {
+            "name": "data-values/validators",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/Validators.git",
+                "reference": "926673bd5e23c52514933c0b65c2b44c222e27d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/Validators/zipball/926673bd5e23c52514933c0b65c2b44c222e27d0",
+                "reference": "926673bd5e23c52514933c0b65c2b44c222e27d0",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "^2.1.1|~1.0|~0.1",
+                "data-values/interfaces": "~0.2.0|~0.1.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35",
+                "wikibase/wikibase-codesniffer": "0.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ValueValidators\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "The Wikidata team",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Common ValueValidator implementations",
+            "homepage": "https://github.com/DataValues/Validators",
+            "keywords": [
+                "datavalues",
+                "validation",
+                "validators",
+                "wikidata"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/wikidata",
+                "source": "https://github.com/DataValues/Validators/tree/0.1.3"
+            },
+            "time": "2018-08-28T05:49:45+00:00"
+        },
+        {
+            "name": "mediawiki/mediawiki-codesniffer",
+            "version": "v38.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/mediawiki-tools-codesniffer.git",
+                "reference": "059db7ef17adf2fd1088c42a05e6736e5c2aab2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/mediawiki-tools-codesniffer/zipball/059db7ef17adf2fd1088c42a05e6736e5c2aab2a",
+                "reference": "059db7ef17adf2fd1088c42a05e6736e5c2aab2a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/semver": "^1.7.2|^3.2.4",
+                "composer/spdx-licenses": "~1.5.2",
+                "ext-mbstring": "*",
+                "php": ">=7.2.0",
+                "squizlabs/php_codesniffer": "3.6.1"
+            },
+            "require-dev": {
+                "mediawiki/mediawiki-phan-config": "0.11.0",
+                "mediawiki/minus-x": "1.1.1",
+                "php-parallel-lint/php-console-highlighter": "0.5.0",
+                "php-parallel-lint/php-parallel-lint": "1.3.1",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "MediaWiki\\Sniffs\\": "MediaWiki/Sniffs/",
+                    "MediaWiki\\Sniffs\\Tests\\": "MediaWiki/Tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "MediaWiki CodeSniffer Standards",
+            "homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
+            "keywords": [
+                "codesniffer",
+                "mediawiki"
+            ],
+            "support": {
+                "source": "https://github.com/wikimedia/mediawiki-tools-codesniffer/tree/v38.0.0"
+            },
+            "time": "2021-10-21T18:15:41+00:00"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "bin": [
+                "bin/phpcs",
+                "bin/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "support": {
+                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
+                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
+                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCSStandards",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2021-10-11T04:00:11+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php80",
+            "version": "v1.30.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php80.git",
+                "reference": "77fa7995ac1b21ab60769b7323d600a991a90433"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/77fa7995ac1b21ab60769b7323d600a991a90433",
+                "reference": "77fa7995ac1b21ab60769b7323d600a991a90433",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.30.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-05-31T15:07:36+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
