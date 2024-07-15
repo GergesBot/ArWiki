@@ -46,7 +46,7 @@ $mysqli = new mysqli(
     $env["passworddb"],
     $env["namedb"]
 );
-
+\Bot\Service\Wikidata::initialize($auth, $client);
 if (file_exists($cookieFile)) {
     chmod($cookieFile, 0600);
 }
