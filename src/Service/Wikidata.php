@@ -43,6 +43,8 @@ class Wikidata {
             $auth,
             $client
         );
+        // Used method to get the version of the API and Login.
+        $this->api->getVersion();
     }
 	/**
 	 * Returns an array of data value classes.
