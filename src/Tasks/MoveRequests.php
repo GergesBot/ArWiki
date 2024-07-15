@@ -81,7 +81,6 @@ class MoveRequests extends Task
             "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes",
             "rename-item" => $this->getValueTemplate($text, "rename-item") == "yes"
         ];
-
     }
     private function renameItem(string $item, string $newname): void {
         $wikidata = Wikidata::getInstance();
