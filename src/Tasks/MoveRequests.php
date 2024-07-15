@@ -8,6 +8,7 @@ use WikiConnect\MediawikiApi\DataModel\Content;
 use WikiConnect\MediawikiApi\DataModel\Revision;
 use WikiConnect\MediawikiApi\DataModel\EditInfo;
 use WikiConnect\MediawikiApi\DataModel\Title;
+use Bot\Service\Wikidata;
 use Bot\IO\Util;
 use Exception;
 
@@ -77,9 +78,20 @@ class MoveRequests extends Task
             "movesubpages" => $this->getValueTemplate($text, "move-subpages") == "yes",
             "noredirect" => $this->getValueTemplate($text, "leave-redirect") == "no",
             "movetalk" => $this->getValueTemplate($text, "move-talk") == "yes",
-            "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes"
+            "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes",
+            "rename-item" => $this->getValueTemplate($text, "leave-redirect") == "no"
         ];
 
+    }
+    private function renameItem(string $item, string $newname): void {
+        $wikidata = Wikidata::getInstance();
+        $wbFactory = $wikidata->getFactory();
+        $wbGeter = $wbFactory->newRevisionGetter();
+        $wbSaver = $wbFactory->newRevisionSaver();
+        $wbItem = $getter->getFromId($item);
+        $wbItem->getContent()->getData()->setLabel("ar" , $newname);
+        $wbSaver->save( $wbItem, new EditInfo( 'testing' ) );
+        
     }
     private function move(string $from, string $to): void {
         $mover = $this->services->newPageMover();
@@ -109,7 +121,9 @@ class MoveRequests extends Task
                     $mover->move($this->getPage($this->getTalkPage($from)), new Title($this->getTalkPage($to)), $params);
                 }
             }
-
+            if ($sittings["rename-item"]) {
+                $this->renameItem($this->getItem($from), $to);
+            }
         } catch (UsageException $error) {
             $this->log->debug("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
         }

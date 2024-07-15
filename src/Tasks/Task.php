@@ -6,6 +6,7 @@ use mysqli;
 use WikiConnect\MediawikiApi\MediawikiFactory;
 use WikiConnect\MediawikiApi\Client\Action\ActionApi;
 use WikiConnect\MediawikiApi\DataModel\Page;
+use WikiConnect\MediawikiApi\Client\Action\Request\ActionRequest;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -54,7 +55,37 @@ abstract class Task {
             return $page->getRevisions()->getLatest()->getContent()->getData();
         }
     }
-    
+    public function getItem(string | Page $page): string  | false {
+        if (is_string($page)) {
+            $title = $page;
+        } else {
+            $title = $page->getPageIdentifier()->getTitle();
+            if ($title === null) {
+                throw new RuntimeException("Title is null for page: " . $page->getPageIdentifier()->getId());
+            }
+            $title = $title->getText();
+        }
+        $result = $this->api->request(
+            ActionRequest::simpleGet(
+                "query",
+                [
+                    "prop" => "pageprops",
+                    "ppprop" => "wikibase_item",
+                    "titles" => $title,
+                    "formatversion" => "2"
+                ]
+            )
+        );
+        $pages = $result["query"]["pages"] ?? null;
+        if ($pages === null || count($pages) === 0) {
+            return false;
+        }
+        $pageProps = $pages[0]["pageprops"] ?? null;
+        if ($pageProps === null || !isset($pageProps["wikibase_item"])) {
+            return false;
+        }
+        return $pageProps["wikibase_item"];
+    }
     public function pageExists(string | Page $title): bool {
         if (is_string($title)) {
             $page = $this->getPage($title);
