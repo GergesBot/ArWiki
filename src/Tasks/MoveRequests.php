@@ -79,7 +79,7 @@ class MoveRequests extends Task
             "noredirect" => $this->getValueTemplate($text, "leave-redirect") == "no",
             "movetalk" => $this->getValueTemplate($text, "move-talk") == "yes",
             "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes",
-            "rename-item" => $this->getValueTemplate($text, "leave-redirect") == "no"
+            "rename-item" => $this->getValueTemplate($text, "rename-item") == "yes"
         ];
 
     }
@@ -122,7 +122,10 @@ class MoveRequests extends Task
                 }
             }
             if ($sittings["rename-item"]) {
-                $this->renameItem($this->getItem($from), $to);
+                $item = $this->getItem($from);
+                if ($item != false) {
+                    $this->renameItem($this->getItem($from), $to);
+                }
             }
         } catch (UsageException $error) {
             $this->log->debug("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
