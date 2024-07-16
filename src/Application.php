@@ -37,6 +37,7 @@ $client = new \GuzzleHttp\Client([
 ]);
 
 $auth = new \WikiConnect\MediawikiApi\Client\Auth\UserAndPassword($env["userbot"], $env["passwordbot"]);
+$wbAuth = clone $auth;
 $api = new \WikiConnect\MediawikiApi\Client\Action\ActionApi($env["apibot"], $auth, $client);
 $services = new \WikiConnect\MediawikiApi\MediawikiFactory($api);
 // Create an authenticated mysqli
@@ -46,7 +47,7 @@ $mysqli = new mysqli(
     $env["passworddb"],
     $env["namedb"]
 );
-\Bot\Service\Wikidata::initialize($auth, $client);
+\Bot\Service\Wikidata::initialize($wbAuth, $client);
 if (file_exists($cookieFile)) {
     chmod($cookieFile, 0600);
 }
