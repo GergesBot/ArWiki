@@ -89,7 +89,7 @@ class MoveRequests extends Task
         $wbSaver = $wbFactory->newRevisionSaver();
         $wbItem = $wbGeter->getFromId($item);
         $wbItem->getContent()->getData()->setLabel("ar" , $newname);
-        $wbSaver->save( $wbItem, new EditInfo( 'testing' ) );
+        $wbSaver->save($wbItem);
         
     }
     private function move(string $from, string $to): void {
@@ -111,6 +111,7 @@ class MoveRequests extends Task
             }
         }
         try {
+            $this->log->info("Move requests: Moving from $from to $to with parameters: " . print_r($params, true));
             if ($sittings["rename-item"]) {
                 $item = $this->getItem($from);
             }
@@ -125,11 +126,12 @@ class MoveRequests extends Task
             }
             if ($sittings["rename-item"]) {
                 if ($item != false) {
-                    $this->renameItem($this->getItem($from), $to);
+                    $this->log->info("Move requests: Renaming item $item to $to");
+                    $this->renameItem($item, $to);
                 }
             }
         } catch (UsageException $error) {
-            $this->log->debug("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
+            $this->log->error("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
         }
 
     }
