@@ -11,10 +11,13 @@ use WikiConnect\MediawikiApi\DataModel\EditInfo;
 use WikiConnect\WikibaseApi\DataModel\DataModelFactory;
 use DataValues\Deserializers\DataValueDeserializer;
 use DataValues\Serializers\DataValueSerializer;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 class Wikidata {
     private const endpoint = "https://www.wikidata.org/w/api.php";
     private ActionApi $api;
     private static $instance = null;
+    private Logger $logger;
     /**
      * Constructor for the Wikidata class.
      *
@@ -36,7 +39,9 @@ class Wikidata {
         if ($client === null) {
             throw new \InvalidArgumentException('HTTP client cannot be null');
         }
-
+        $day = date("d-M-Y");
+        $this->logger = new Logger('Wikidata');
+        $this->logger->pushHandler(new StreamHandler( FOLDER_LOGS .'/wikidata/log-' . $day . '.log', Logger::DEBUG));
         // Create a new ActionApi instance with the provided parameters.
         $this->api = new ActionApi(
             $endpoint,
@@ -44,7 +49,13 @@ class Wikidata {
             $client
         );
         // Used method to get the version of the API and Login.
-        $this->api->getVersion();
+        $this->logger->info('Version: '. $this->api->getVersion());
+        if ($this->api->verifyLogin()) {
+            $this->logger->info('Login successful');
+        } else {
+            $this->logger->info('Login failed');
+        }
+        $this->logger->info('Login: '. $auth->getUsername() );
     }
 	/**
 	 * Returns an array of data value classes.
