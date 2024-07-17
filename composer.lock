@@ -1115,16 +1115,16 @@
         },
         {
             "name": "wiki-connect/wikibase-api",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/WikibaseApi.git",
-                "reference": "76e5f8e8652e8bff3cc38a2bbb1112b588c22d8e"
+                "reference": "3f4cbbc3229ce00a5d5b7490b2443ffa996527e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/76e5f8e8652e8bff3cc38a2bbb1112b588c22d8e",
-                "reference": "76e5f8e8652e8bff3cc38a2bbb1112b588c22d8e",
+                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/3f4cbbc3229ce00a5d5b7490b2443ffa996527e5",
+                "reference": "3f4cbbc3229ce00a5d5b7490b2443ffa996527e5",
                 "shasum": ""
             },
             "require": {
@@ -1171,9 +1171,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/WikibaseApi/issues",
-                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.2"
+                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.3"
             },
-            "time": "2024-07-15T12:11:09+00:00"
+            "time": "2024-07-17T10:52:37+00:00"
         },
         {
             "name": "wikibase/data-model",
