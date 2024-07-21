@@ -82,6 +82,12 @@ class MoveRequests extends Task
             "rename-item" => $this->getValueTemplate($text, "rename-item") == "yes"
         ];
     }
+    private function removeDisambiguation(string $input): string {
+        $pattern = "/\([^)]*?\)/u";
+        $input = preg_replace($pattern, "", $input);
+        $input = preg_replace("/\s+/", " ", $input);
+        return $input;
+    }
     private function renameItem(string $item, string $newname): void {
         $wikidata = Wikidata::getInstance();
         $wbFactory = $wikidata->getFactory();
@@ -92,6 +98,7 @@ class MoveRequests extends Task
         $wbSaver->save($wbItem);
         
     }
+
     private function move(string $from, string $to): void {
         $mover = $this->services->newPageMover();
         $page = $this->getPage($from);
