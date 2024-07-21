@@ -114,6 +114,10 @@ class MoveRequests extends Task
             $this->log->info("Move requests: Moving from $from to $to with parameters: " . print_r($params, true));
             if ($sittings["rename-item"]) {
                 $item = $this->getItem($from);
+                if ($item != false) {
+                    $this->log->info("Move requests: Renaming item $item to $to");
+                    $this->renameItem($item, $to);
+                }
             }
             if ($sittings["leave-talk"]) {
                 $mover->move($page, $target, $params);
@@ -122,12 +126,6 @@ class MoveRequests extends Task
                 if ($this->pageExists($this->getTalkPage($from))) {
                     $params["noredirect"] = true;
                     $mover->move($this->getPage($this->getTalkPage($from)), new Title($this->getTalkPage($to)), $params);
-                }
-            }
-            if ($sittings["rename-item"]) {
-                if ($item != false) {
-                    $this->log->info("Move requests: Renaming item $item to $to");
-                    $this->renameItem($item, $to);
                 }
             }
         } catch (UsageException $error) {
