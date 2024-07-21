@@ -94,7 +94,7 @@ class MoveRequests extends Task
         $wbGeter = $wbFactory->newRevisionGetter();
         $wbSaver = $wbFactory->newRevisionSaver();
         $wbItem = $wbGeter->getFromId($item);
-        $wbItem->getContent()->getData()->setLabel("ar" , $newname);
+        $wbItem->getContent()->getData()->setLabel("ar" , $this->removeDisambiguation($newname));
         $wbSaver->save($wbItem);
         
     }
