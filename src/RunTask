@@ -1,6 +1,11 @@
 #!/usr/bin/env php
 <?php
-require __DIR__."/Application.php";
+require dirname(__DIR__)."/vendor/autoload.php";
+$App = new \Bot\Application();
+$api = $App->getApi();
+$services = $App->getServices();
+$mysqli = $App->getMysqli();
+
 $name = $argv[1];
 $className = "Bot\\Tasks\\${name}";
 if (class_exists($className)) {
