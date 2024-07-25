@@ -17,7 +17,7 @@ class Util
     public static function getImageInfo(ActionApi $api, string $filename, string $iiprop = null): array | false {
         $query = [
             "format" => "json",
-            "titles" => "File:${filename}",
+            "titles" => "File:$filename",
             "prop" => "imageinfo"
         ];
 
