@@ -218,7 +218,7 @@ class FeaturedContent extends Task
                     str_replace("مراجعة الزملاء/", "", $name["page_title"]),
                 );
                 
-                $Page = $this->getPage("ويكيبيديا:مراجعة الزملاء/${NamePage}");
+                $Page = $this->getPage("ويكيبيديا:مراجعة الزملاء/$NamePage");
                 $TextPage = $Page->getRevisions()->getLatest()->getContent()->getData();
                 $_data = $this->getDataPage($NamePage);
                 $Comment = $this->getComment($TextPage);
@@ -234,7 +234,7 @@ class FeaturedContent extends Task
                 $Archive = new PeerReviewArchive($this->api, $this->services, $this->mysqli);
                 $Archive->Archive($NamePage);
                 } else {
-                    $this->log->info("A page ${NamePage} that is not older than two days.");
+                    $this->log->info("A page $NamePage that is not older than two days.");
                 }
             }
         }
