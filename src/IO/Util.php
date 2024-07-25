@@ -52,7 +52,7 @@ class Util
             "November" => "نوفمبر",
             "December" => "ديسمبر"
         );
-        return $months[strftime("%B")] . " " . strftime("%Y");
+        return $months[date('F')] . " " . date('Y');
     }
     public static function PregReplace($Text, $Array = array()): string {
         foreach ($Array as $Row) {
