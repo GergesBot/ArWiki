@@ -12,7 +12,6 @@ define("FOLDER_SPARQL", dirname(__DIR__) . "/assets/SPARQL");
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
-use GuzzleHttp\Cookie\CookieJarInterface;
 use WikiConnect\MediawikiApi\Client\Action\ActionApi;
 use WikiConnect\MediawikiApi\Client\Auth\UserAndPassword;
 use WikiConnect\MediawikiApi\MediawikiFactory;
@@ -27,7 +26,14 @@ class Application
     private $cookieFile;
     private $client;
     private $config;
+    private static $instance = null;
 
+    public static function getInstance(): self {
+        if (self::$instance == null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
     public function __construct()
     {
         $this->createFolders();
