@@ -155,6 +155,9 @@ class FeaturedContent extends Task
         $text = $page->getRevisions()->getLatest()->getContent()->getData();
         $text = str_replace("مرشحة = لا", "مرشحة = نعم", $text);
         $text = str_replace("مرشحة =لا", "مرشحة =نعم", $text);
+        $currentYear = date("Y");
+        $reviewCategory = "تصنيف:مراجعات الزملاء سنة $currentYear";
+        $text .= "\n[[$reviewCategory]]";
         $revision = new Revision(new Content($text),$page->getPageIdentifier());
         $this->services->newRevisionSaver()->save($revision);
     }
