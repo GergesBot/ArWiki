@@ -121,14 +121,13 @@ class FeaturedContent extends Task
                     $data["blue_links"] + $data["red_links"],
                 ],
                 [
-                    "/{\{\وضع المراجعة\}\}/u",
+                    "/{\{\{\وضع المراجعة\}\}\}/u",
                     "1",
                 ],
                 ["/<includeonly>/", ""],
                 ["/<\/includeonly>/", ""],
                 ["/{{{عنوان}}}/", $name],
-                ["/{{{تعليق}}}/", $comment],
-                ["/{{{وضع المراجعة}}}/", "1"],
+                ["/{{{تعليق}}}/", $comment]
             ],
         );
         $revision = new Revision(new Content($TextPage), $VotePage->getPageIdentifier());
@@ -156,6 +155,9 @@ class FeaturedContent extends Task
         $text = $page->getRevisions()->getLatest()->getContent()->getData();
         $text = str_replace("مرشحة = لا", "مرشحة = نعم", $text);
         $text = str_replace("مرشحة =لا", "مرشحة =نعم", $text);
+        $currentYear = date("Y");
+        $reviewCategory = "تصنيف:مراجعات الزملاء سنة $currentYear";
+        $text .= "\n[[$reviewCategory]]";
         $revision = new Revision(new Content($text),$page->getPageIdentifier());
         $this->services->newRevisionSaver()->save($revision);
     }
