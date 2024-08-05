@@ -121,14 +121,13 @@ class FeaturedContent extends Task
                     $data["blue_links"] + $data["red_links"],
                 ],
                 [
-                    "/{\{\وضع المراجعة\}\}/u",
+                    "/{\{\{\وضع المراجعة\}\}\}/u",
                     "1",
                 ],
                 ["/<includeonly>/", ""],
                 ["/<\/includeonly>/", ""],
                 ["/{{{عنوان}}}/", $name],
-                ["/{{{تعليق}}}/", $comment],
-                ["/{{{وضع المراجعة}}}/", "1"],
+                ["/{{{تعليق}}}/", $comment]
             ],
         );
         $revision = new Revision(new Content($TextPage), $VotePage->getPageIdentifier());
