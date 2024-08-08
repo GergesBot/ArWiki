@@ -107,6 +107,7 @@ class PeerReviewArchive extends Task
                 $this->FormatReviewPage($Page, $Tag);
                 $num = 33;
                 $YearMonth = Util::getYearMonth();
+                $revision = null;
                 while (true) {
                     $ArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
                     if ($ArchivePage->getPageIdentifier()->getId() < 1) {
