@@ -2,6 +2,7 @@
     "name": "gergesbot/arwiki",
     "type": "project",
     "license": "GPL-3.0-or-later",
+    "description": "Source code for GergesBot in the Arabic Wikipedia.",
     "autoload": {
         "psr-4": {
             "Bot\\": "src/"
