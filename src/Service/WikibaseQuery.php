@@ -24,7 +24,8 @@ class WikibaseQuery {
 	 * @return array Full response, that will look something like [ 'results' => [ 'bindings' => ... ] ]
 	 */
 	public function query( string $query ): array {
-		$sparqlResponse = $this->client->get(
+		$sparqlResponse = $this->client->request(
+			'GET',
 			$this->endpoint . '?format=json&query=' . urlencode( $query )
 		);
 		$sparqlArray = json_decode( $sparqlResponse->getBody(), true );
