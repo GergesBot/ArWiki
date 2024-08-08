@@ -17,5 +17,13 @@
         "wiki-connect/mediawiki-api": "^1.0.6",
         "monolog/monolog": "^2.9",
         "wiki-connect/wikibase-api": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.11"
+    },
+    "scripts": {
+        "test": [
+            "phpstan analyse"
+        ]
     }
 }

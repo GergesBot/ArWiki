@@ -31,7 +31,6 @@ class FileUploader extends Service {
 	 * Upload a file.
 	 *
 	 * @param string $targetName The name to give the file on the wiki (no 'File:' prefix required).
-	 * @param string $location Can be local path or remote URL.
 	 * @param string $text Initial page text for new files.
 	 * @param string|null $comment Upload comment. Also used as the initial page text for new files if
 	 * text parameter not provided.

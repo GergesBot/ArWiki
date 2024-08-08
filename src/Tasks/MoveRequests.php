@@ -45,7 +45,7 @@ class MoveRequests extends Task
     private function getSummary(): string {
         return preg_replace("/<!--.*?-->/", "", trim($this->readPage("ويكيبيديا:طلبات نقل عبر البوت/ملخص التعديل")));
     }
-    private function getTalkPage(string $title): string {
+    private function getTalkPage(string $title): string | false {
         $namespaces = [
             "مستخدم" => "نقاش المستخدم",
             "ويكيبيديا" => "نقاش ويكيبيديا",
