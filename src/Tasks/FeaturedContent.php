@@ -67,20 +67,17 @@ class FeaturedContent extends Task
         return array_merge($query1, $query2, $query3, $query4, $query5, $query6);
     }
     private function getVotingPageIndex($tag): string {
-        switch ($tag) {
-            case "مختارة":
-                return "ويكيبيديا:ترشيحات المقالات المختارة";
-                break;
-            case "جيدة":
-                return "ويكيبيديا:ترشيحات المقالات الجيدة";
-                break;
-            case "قائمة":
-                return "ويكيبيديا:ترشيحات القوائم المختارة";
-                break;
-            default:
-                throw new RuntimeException("Error: Tag type is wrong.");
-        }
+    switch ($tag) {
+        case "مختارة":
+            return "ويكيبيديا:ترشيحات المقالات المختارة";
+        case "جيدة":
+            return "ويكيبيديا:ترشيحات المقالات الجيدة";
+        case "قائمة":
+            return "ويكيبيديا:ترشيحات القوائم المختارة";
+        default:
+            throw new RuntimeException("Error: Tag type is wrong.");
     }
+}
     private function CreateVotePage(
         $data,
         $name,
