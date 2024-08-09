@@ -18,4 +18,11 @@ jobs:
           script_stop: true
           key: ${{ secrets.KEY }}
           script: |
-            become ${{ secrets.NAMETOOL }} sh -c "cd ArWiki; git pull origin main; toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; toolforge-jobs flush; toolforge-jobs load ArWiki/cronjobs.yaml"
+            become ${{ secrets.NAMETOOL }} sh -c "
+              cd ArWiki; 
+              git reset --hard; 
+              git clean -fd; 
+              git pull origin main; 
+              toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; 
+              toolforge-jobs flush; 
+              toolforge-jobs load ArWiki/cronjobs.yaml"
