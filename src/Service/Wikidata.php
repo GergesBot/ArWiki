@@ -29,11 +29,11 @@ class Wikidata {
         ?string $endpoint = self::endpoint
     ) {
         // Check for null pointer references.
-        if ($auth === null) {
+        if ($auth == null) {
             throw new \InvalidArgumentException('Authentication cannot be null');
         }
 
-        if ($client === null) {
+        if ($client == null) {
             throw new \InvalidArgumentException('HTTP client cannot be null');
         }
 
