@@ -85,7 +85,7 @@ class UndoRequests extends Task
                     if($request["from"] == 0){
                         $edits = $this->getEditsUser1($username);
                     } else {
-                        $edits = $this->getEditsUser1($username, $request["from"], $request["to"]);
+                        $edits = $this->getEditsUser2($username, $request["from"], $request["to"]);
                     }
                     foreach ($edits as $edit){
                         if(!$this->revertedCheck($edit["rev_undo"])){

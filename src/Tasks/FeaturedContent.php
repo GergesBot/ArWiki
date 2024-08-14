@@ -67,20 +67,17 @@ class FeaturedContent extends Task
         return array_merge($query1, $query2, $query3, $query4, $query5, $query6);
     }
     private function getVotingPageIndex($tag): string {
-        switch ($tag) {
-            case "مختارة":
-                return "ويكيبيديا:ترشيحات المقالات المختارة";
-                break;
-            case "جيدة":
-                return "ويكيبيديا:ترشيحات المقالات الجيدة";
-                break;
-            case "قائمة":
-                return "ويكيبيديا:ترشيحات القوائم المختارة";
-                break;
-            default:
-                throw new RuntimeException("Error: Tag type is wrong.");
-        }
+    switch ($tag) {
+        case "مختارة":
+            return "ويكيبيديا:ترشيحات المقالات المختارة";
+        case "جيدة":
+            return "ويكيبيديا:ترشيحات المقالات الجيدة";
+        case "قائمة":
+            return "ويكيبيديا:ترشيحات القوائم المختارة";
+        default:
+            throw new RuntimeException("Error: Tag type is wrong.");
     }
+}
     private function CreateVotePage(
         $data,
         $name,
@@ -121,14 +118,13 @@ class FeaturedContent extends Task
                     $data["blue_links"] + $data["red_links"],
                 ],
                 [
-                    "/{\{\وضع المراجعة\}\}/u",
+                    "/{\{\{\وضع المراجعة\}\}\}/u",
                     "1",
                 ],
                 ["/<includeonly>/", ""],
                 ["/<\/includeonly>/", ""],
                 ["/{{{عنوان}}}/", $name],
-                ["/{{{تعليق}}}/", $comment],
-                ["/{{{وضع المراجعة}}}/", "1"],
+                ["/{{{تعليق}}}/", $comment]
             ],
         );
         $revision = new Revision(new Content($TextPage), $VotePage->getPageIdentifier());
@@ -156,6 +152,9 @@ class FeaturedContent extends Task
         $text = $page->getRevisions()->getLatest()->getContent()->getData();
         $text = str_replace("مرشحة = لا", "مرشحة = نعم", $text);
         $text = str_replace("مرشحة =لا", "مرشحة =نعم", $text);
+        $currentYear = date("Y");
+        $reviewCategory = "تصنيف:مراجعات الزملاء سنة $currentYear";
+        $text .= "\n[[$reviewCategory]]";
         $revision = new Revision(new Content($text),$page->getPageIdentifier());
         $this->services->newRevisionSaver()->save($revision);
     }
@@ -218,7 +217,7 @@ class FeaturedContent extends Task
                     str_replace("مراجعة الزملاء/", "", $name["page_title"]),
                 );
                 
-                $Page = $this->getPage("ويكيبيديا:مراجعة الزملاء/${NamePage}");
+                $Page = $this->getPage("ويكيبيديا:مراجعة الزملاء/$NamePage");
                 $TextPage = $Page->getRevisions()->getLatest()->getContent()->getData();
                 $_data = $this->getDataPage($NamePage);
                 $Comment = $this->getComment($TextPage);
@@ -234,7 +233,7 @@ class FeaturedContent extends Task
                 $Archive = new PeerReviewArchive($this->api, $this->services, $this->mysqli);
                 $Archive->Archive($NamePage);
                 } else {
-                    $this->log->info("A page ${NamePage} that is not older than two days.");
+                    $this->log->info("A page $NamePage that is not older than two days.");
                 }
             }
         }

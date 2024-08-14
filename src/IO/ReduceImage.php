@@ -13,7 +13,7 @@ class ReduceImage
         $this->image->readImageBlob($imageData);
     }
 
-    public function reduce(int $maxDimension = 400, string $filename)
+    public function reduce(int $maxDimension, string $filename)
     {
         $originalWidth = $this->image->getImageWidth();
         $originalHeight = $this->image->getImageHeight();

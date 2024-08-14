@@ -1,0 +1,28 @@
+name: Add_ssh_deploy_server
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          request_pty: true
+          script_stop: true
+          key: ${{ secrets.KEY }}
+          script: |
+            become ${{ secrets.NAMETOOL }} bash -c "
+              cd ArWiki; 
+              git reset --hard; 
+              git clean -fd; 
+              git pull origin main; 
+              toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; 
+              toolforge-jobs flush; 
+              toolforge-jobs load /data/project/${{ secrets.NAMETOOL }}/ArWiki/cronjobs.yaml"

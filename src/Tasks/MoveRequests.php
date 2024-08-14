@@ -46,31 +46,34 @@ class MoveRequests extends Task
     private function getSummary(): string {
         return preg_replace("/<!--.*?-->/", "", trim($this->readPage("ويكيبيديا:طلبات نقل عبر البوت/ملخص التعديل")));
     }
-    private function getTalkPage(string $title): string {
-        $namespaces = [
-            "مستخدم" => "نقاش المستخدم",
-            "ويكيبيديا" => "نقاش ويكيبيديا",
-            "وب" => "نقاش ويكيبيديا",
-            "ملف" => "نقاش الملف",
-            "ميدياويكي" => "نقاش ميدياويكي",
-            "قالب" => "نقاش القالب",
-            "مساعدة" => "نقاش المساعدة",
-            "تصنيف" => "نقاش التصنيف",
-            "بوابة" => "نقاش البوابة",
-            "كتب" => "نقاش الكتب",
-            "نص زمنيTimedText" => "نقاش النص الزمنيTimedText talk",
-            "وحدة" => "نقاش الوحدة"
+    private function getTalkPage(string $title): string | false
+    {
+        $namespaceMappings = [
+            'مستخدم' => 'نقاش المستخدم',
+            'ويكيبيديا' => 'نقاش ويكيبيديا',
+            'وب' => 'نقاش ويكيبيديا',
+            'ملف' => 'نقاش الملف',
+            'ميدياويكي' => 'نقاش ميدياويكي',
+            'قالب' => 'نقاش القالب',
+            'مساعدة' => 'نقاش المساعدة',
+            'تصنيف' => 'نقاش التصنيف',
+            'بوابة' => 'نقاش البوابة',
+            'كتب' => 'نقاش الكتب',
+            'نص زمنيTimedText' => 'نقاش النص الزمنيTimedText',
+            'وحدة' => 'نقاش الوحدة'
         ];
-        if (!str_contains($title, ":")) {
-            return "نقاش:${title}";
+
+        if (!str_contains($title, ':')) {
+            return "نقاش:{$title}";
         }
-        $data = explode(":", $title);
-        if (array_key_exists($data[0], $namespaces)) {
-            return $namespaces[$data[0]] . ":" . $data[1];
-        } else {
-            return false;
+
+        [$namespace, $pageName] = explode(':', $title);
+
+        if (array_key_exists($namespace, $namespaceMappings)) {
+            return "{$namespaceMappings[$namespace]}:{$pageName}";
         }
-        return $namespaces[$data[0]] . ":" . $data[1];
+
+        return false;
     }
     private function getSittings(): array {
         $text = $this->readPage("ويكيبيديا:طلبات نقل عبر البوت/خيارات البوت");

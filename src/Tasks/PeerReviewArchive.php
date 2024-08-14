@@ -20,14 +20,6 @@ class PeerReviewArchive extends Task
             "Name" => "مراجعات_الزملاء_المرفوضة",
         ])), "page_title"));
     }
-    private function getPagesAcceptable(): array {
-        return array_map(function($text) {
-            $prefix = "مراجعة الزملاء/";
-            return str_replace($prefix, "", $text);
-        }, array_column($this->query->getArray(Util::ReadFile(FOLDER_SQL . "/GetPagesFromCategories.sql", [
-            "Name" => "مراجعات_الزملاء_المقبولة",
-        ])), "page_title"));
-    }
     private function getPagesCurrent() {
         $page = $this->services->newPageGetter()->getFromTitle("ويكيبيديا:مراجعة الزملاء");
         $text = $page->getRevisions()->getLatest()->getContent()->getData();
@@ -107,6 +99,7 @@ class PeerReviewArchive extends Task
                 $this->FormatReviewPage($Page, $Tag);
                 $num = 33;
                 $YearMonth = Util::getYearMonth();
+                $revision = null;
                 while (true) {
                     $ArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
                     if ($ArchivePage->getPageIdentifier()->getId() < 1) {
@@ -132,10 +125,6 @@ class PeerReviewArchive extends Task
     }
     public function RUN(): void {
         $this->running(function(){
-            /*
-                So that there is no conflict with the task of FeaturedContent
-            $pages1 = array_merge($this->getPagesRejected(), $this->getPagesAcceptable());
-            */
             $pages1 = $this->getPagesRejected();
             $pages2 = $this->getPagesCurrent();
             $pages = array_intersect($pages1, $pages2);

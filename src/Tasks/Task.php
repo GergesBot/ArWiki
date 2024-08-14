@@ -14,6 +14,7 @@ use Monolog\Handler\TestHandler;
 use Bot\IO\QueryDB;
 use Throwable;
 use Exception;
+use RuntimeException;
 
 abstract class Task {
 
@@ -105,7 +106,7 @@ abstract class Task {
     }
     public function getValueTemplate(string $text, string $key): string | int {
         if(@preg_match("/".preg_quote($key).".*?=(.*)/u", $text, $matche) === false){
-            throw new Exception(preg_last_error());
+            throw new Exception(preg_last_error_msg());
         }
         return trim($matche[1]);
     }
