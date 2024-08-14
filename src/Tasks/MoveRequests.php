@@ -8,6 +8,7 @@ use WikiConnect\MediawikiApi\DataModel\Content;
 use WikiConnect\MediawikiApi\DataModel\Revision;
 use WikiConnect\MediawikiApi\DataModel\EditInfo;
 use WikiConnect\MediawikiApi\DataModel\Title;
+use Bot\Service\Wikidata;
 use Bot\IO\Util;
 use Exception;
 
@@ -80,10 +81,27 @@ class MoveRequests extends Task
             "movesubpages" => $this->getValueTemplate($text, "move-subpages") == "yes",
             "noredirect" => $this->getValueTemplate($text, "leave-redirect") == "no",
             "movetalk" => $this->getValueTemplate($text, "move-talk") == "yes",
-            "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes"
+            "leave-talk" => $this->getValueTemplate($text, "leave-talk") == "yes",
+            "rename-item" => $this->getValueTemplate($text, "rename-item") == "yes"
         ];
-
     }
+    private function removeDisambiguation(string $input): string {
+        $pattern = "/\([^)]*?\)/u";
+        $input = preg_replace($pattern, "", $input);
+        $input = preg_replace("/\s+/", " ", $input);
+        return $input;
+    }
+    private function renameItem(string $item, string $newname): void {
+        $wikidata = Wikidata::getInstance();
+        $wbFactory = $wikidata->getFactory();
+        $wbGeter = $wbFactory->newRevisionGetter();
+        $wbSaver = $wbFactory->newRevisionSaver();
+        $wbItem = $wbGeter->getFromId($item);
+        $wbItem->getContent()->getData()->setLabel("ar" , $this->removeDisambiguation($newname));
+        $wbSaver->save($wbItem);
+        
+    }
+
     private function move(string $from, string $to): void {
         $mover = $this->services->newPageMover();
         $page = $this->getPage($from);
@@ -103,6 +121,14 @@ class MoveRequests extends Task
             }
         }
         try {
+            $this->log->info("Move requests: Moving from $from to $to with parameters: " . print_r($params, true));
+            if ($sittings["rename-item"]) {
+                $item = $this->getItem($from);
+                if ($item != false) {
+                    $this->log->info("Move requests: Renaming item $item to $to");
+                    $this->renameItem($item, $to);
+                }
+            }
             if ($sittings["leave-talk"]) {
                 $mover->move($page, $target, $params);
             } else {
@@ -112,9 +138,8 @@ class MoveRequests extends Task
                     $mover->move($this->getPage($this->getTalkPage($from)), new Title($this->getTalkPage($to)), $params);
                 }
             }
-
         } catch (UsageException $error) {
-            $this->log->debug("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
+            $this->log->error("Move requests: An error occurred to move from $from to $to", [$error->getRawMessage()]);
         }
 
     }
