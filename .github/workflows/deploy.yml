@@ -1,4 +1,4 @@
-name: Add_ssh_deploy_server
+name: Deploy
 on:
   push:
     branches:
