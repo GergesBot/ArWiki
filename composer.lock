@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ae1f09d48548f332e6c61d188278c36",
+    "content-hash": "78f291682ffb348314a2ef50afad9644",
     "packages": [
         {
             "name": "data-values/data-values",
@@ -1826,22 +1826,22 @@
         },
         {
             "name": "data-values/number",
-            "version": "0.10.2",
+            "version": "0.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/Number.git",
-                "reference": "524c0a07469949d4c5a53245c5a3edf41a0e540c"
+                "reference": "0e7e3217d04d48d3b895171e743ac81bf4824735"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/Number/zipball/524c0a07469949d4c5a53245c5a3edf41a0e540c",
-                "reference": "524c0a07469949d4c5a53245c5a3edf41a0e540c",
+                "url": "https://api.github.com/repos/wmde/Number/zipball/0e7e3217d04d48d3b895171e743ac81bf4824735",
+                "reference": "0e7e3217d04d48d3b895171e743ac81bf4824735",
                 "shasum": ""
             },
             "require": {
-                "data-values/common": "1.0.0|~0.4.0|~0.3.0",
-                "data-values/data-values": "~3.0.0|~2.0|~1.0|~0.1",
-                "data-values/interfaces": "~1.0.0|~0.2.0",
+                "data-values/common": "~1.0|~0.4.0|~0.3.0",
+                "data-values/data-values": "~3.0|~2.0|~1.0|~0.1",
+                "data-values/interfaces": "~1.0|~0.2.0",
                 "php": ">=7.2"
             },
             "require-dev": {
@@ -1851,9 +1851,6 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "Number.php"
-                ],
                 "psr-0": {
                     "DataValues\\": "src",
                     "ValueParsers\\": "src",
@@ -1884,9 +1881,9 @@
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
                 "issues": "https://github.com/wmde/Number/issues",
-                "source": "https://github.com/wmde/Number/tree/0.10.2"
+                "source": "https://github.com/wmde/Number/tree/0.12.3"
             },
-            "time": "2021-03-15T13:45:06+00:00"
+            "time": "2022-10-24T08:49:03+00:00"
         },
         {
             "name": "data-values/time",
