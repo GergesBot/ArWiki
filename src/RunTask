@@ -1,12 +1,23 @@
 #!/usr/bin/env php
 <?php
 require dirname(__DIR__)."/vendor/autoload.php";
+$name = $argv[1];
+
+$stop_tasks_file = __DIR__ ."/.stop_tasks";
+if (file_exists($stop_tasks_file)) {
+    $stop_tasks = file_get_contents($stop_tasks_file);
+    if (in_array($name, explode("\n", $stop_tasks))) {
+        echo "Task $name is stopped, please remove it from the file .stop_tasks to run it.\n";
+        exit(1);
+    }
+}
+
 $App = \Bot\Application::getInstance();
 $api = $App->getApi();
 $services = $App->getServices();
 $mysqli = $App->getMysqli();
 
-$name = $argv[1];
+
 $className = "Bot\\Tasks\\${name}";
 if (class_exists($className)) {
         $Task = new $className($api,  $services, $mysqli);
