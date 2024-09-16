@@ -108,7 +108,7 @@ class PeerReviewArchive extends Task
                      }
                     $ArchivePage = $this->getPage("ويكيبيديا:مراجعة الزملاء/أرشيف ${num}");
                     $ArchivePageText = $ArchivePage->getRevisions()->getLatest()->getContent()->getData();
-                    if (preg_match_all("/\{\{متمز\|(.*)\}\}/", $ArchivePageText, $matches) < 15) {
+                    if (preg_match_all("/\{\{متمز\|(.*)\}\}/", $ArchivePageText, $matches) < 11) {
                         if (strpos($ArchivePageText, $YearMonth) !== false) {
                             $revision = new Revision(new Content("${ArchivePageText}\n{{متمز|$name}}"),$ArchivePage->getPageIdentifier());
                         } else {    
