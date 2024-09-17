@@ -32,15 +32,16 @@ abstract class Task {
         $this->log = new Logger("Task");
         $this->streamLogger();
     }
-    public function streamLogger(): void {
-        if ( getenv("XLOGS") ) {
-            $day = date("d-M-Y");
+    public function streamLogger(): void
+    {
+        $logDirectory = FOLDER_LOGS . '/' . str_replace('Bot\\Tasks\\', '', static::class);
+        $logFile = $logDirectory . '/log-' . date('d-M-Y') . '.log';
+
+        $this->log->pushHandler(new StreamHandler($logFile));
+
+        if (isset($_ENV['XLOGS']) && $_ENV['XLOGS']) {
             $this->log->pushHandler(new TestHandler());
-            $this->log->pushHandler(new StreamHandler("php://stdout"));
-            $this->log->pushHandler(new StreamHandler(FOLDER_LOGS . "/" . str_replace("Bot\\Tasks\\","",get_class($this)) . "/log-{$day}.log"));
-        } else {
-            $day = date("d-M-Y");
-            $this->log->pushHandler(new StreamHandler(FOLDER_LOGS . "/" . str_replace("Bot\\Tasks\\","",get_class($this)) . "/log-{$day}.log"));
+            $this->log->pushHandler(new StreamHandler('php://stdout'));
         }
     }
     
