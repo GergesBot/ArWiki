@@ -39,7 +39,7 @@ abstract class Task {
 
         $this->log->pushHandler(new StreamHandler($logFile));
 
-        if (isset($_ENV['XLOGS']) && $_ENV['XLOGS']) {
+        if (getenv('XLOGS') === 'true') {
             $this->log->pushHandler(new TestHandler());
             $this->log->pushHandler(new StreamHandler('php://stdout'));
         }
