@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy (${ { github.ref_name } })
 on:
   workflow_dispatch:
 jobs:
