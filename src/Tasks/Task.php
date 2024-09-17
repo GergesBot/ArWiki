@@ -23,19 +23,17 @@ abstract class Task {
     public QueryDB $query;
     public mysqli $mysqli;
     public Logger $log;
-    public bool $local;
 	
-	public function __construct(ActionApi $api, MediawikiFactory $services, mysqli $mysqli, bool $local = false) {
+	public function __construct(ActionApi $api, MediawikiFactory $services, mysqli $mysqli) {
         $this->api = $api;
         $this->services = $services;
         $this->query = new QueryDB($mysqli);
         $this->mysqli = $mysqli;
         $this->log = new Logger("Task");
-        $this->local = $local;
         $this->streamLogger();
     }
     public function streamLogger(): void {
-        if ($this->local) {
+        if ( getenv("XLOGS") ) {
             $day = date("d-M-Y");
             $this->log->pushHandler(new TestHandler());
             $this->log->pushHandler(new StreamHandler("php://stdout"));
