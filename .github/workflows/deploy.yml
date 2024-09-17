@@ -19,6 +19,6 @@ jobs:
             become ${{ secrets.NAMETOOL }} bash -c "
               cd ArWiki;
               git pull origin ${{ github.ref_name }}; 
-              toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; 
+              webservice --backend=kubernetes php8.2 shell -- bash -c '/usr/bin/composer --working-dir=/data/project/${{ secrets.NAMETOOL }}/ArWiki install'; 
               toolforge-jobs flush; 
               toolforge-jobs load /data/project/${{ secrets.NAMETOOL }}/ArWiki/cronjobs.yaml"
