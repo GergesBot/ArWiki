@@ -30,9 +30,9 @@ abstract class Task {
         $this->query = new QueryDB($mysqli);
         $this->mysqli = $mysqli;
         $this->log = new Logger("Task");
-        $this->streamLogger();
+        $this->setupLogging();
     }
-    public function streamLogger(): void
+    public function setupLogging(): void
     {
         $logDirectory = FOLDER_LOGS . '/' . str_replace('Bot\\Tasks\\', '', static::class);
         $logFile = $logDirectory . '/log-' . date('d-M-Y') . '.log';
