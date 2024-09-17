@@ -1,0 +1,25 @@
+name: Run Task
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Task Name (The task is run only when necessary)'
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          request_pty: true
+          script_stop: true
+          key: ${{ secrets.KEY }}
+          script: |
+            become ${{ secrets.NAMETOOL }} bash -c "
+              toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; 
+              toolforge-jobs run composer --command 'ArWiki/src/RunTask ${{ inputs.task }}' --image php8.2 --wait"
