@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to server
+      - name: Run Task ${{ inputs.task }}
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
@@ -22,4 +22,4 @@ jobs:
           script: |
             become ${{ secrets.NAMETOOL }} bash -c "
               toolforge-jobs run composer --command 'cd ArWiki; composer install' --image php8.2 --wait; 
-              toolforge-jobs run composer --command 'ArWiki/src/RunTask ${{ inputs.task }}' --image php8.2 --wait"
+              toolforge-jobs run task --command 'ArWiki/src/RunTask ${{ inputs.task }}' --image php8.2 --wait"
