@@ -22,4 +22,4 @@ jobs:
           script: |
             become ${{ secrets.NAMETOOL }} bash -c "
               webservice --backend=kubernetes php8.2 shell -- bash -c '/usr/bin/composer --working-dir=/data/project/${{ secrets.NAMETOOL }}/ArWiki install'; 
-              webservice --backend=kubernetes php8.2 shell -- bash -c '/data/project/${{ secrets.NAMETOOL }}/ArWiki/src/RunTask ${{ inputs.task }}'"
+              webservice --backend=kubernetes php8.2 shell -- bash -c 'XLOGS=true /data/project/${{ secrets.NAMETOOL }}/ArWiki/src/RunTask ${{ inputs.task }}'"
