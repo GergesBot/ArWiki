@@ -328,16 +328,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8"
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
                 "shasum": ""
             },
             "require": {
@@ -391,7 +391,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.0.3"
+                "source": "https://github.com/guzzle/promises/tree/2.0.4"
             },
             "funding": [
                 {
@@ -407,7 +407,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T10:29:17+00:00"
+            "time": "2024-10-17T10:06:22+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -849,30 +849,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.4",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -893,9 +893,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -1071,16 +1071,16 @@
         },
         {
             "name": "wiki-connect/mediawiki-api",
-            "version": "v1.2",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/MediawikiApi.git",
-                "reference": "0e152c7279cf73c84a13fb5142febea3adfbf194"
+                "reference": "da85f597c86113b3892ef2e747030db884c87cec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/0e152c7279cf73c84a13fb5142febea3adfbf194",
-                "reference": "0e152c7279cf73c84a13fb5142febea3adfbf194",
+                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/da85f597c86113b3892ef2e747030db884c87cec",
+                "reference": "da85f597c86113b3892ef2e747030db884c87cec",
                 "shasum": ""
             },
             "require": {
@@ -1088,7 +1088,7 @@
                 "guzzlehttp/promises": "^1.0 || ^2.0",
                 "mediawiki/oauthclient": "^1.1 || ^2.0",
                 "php": ">=8.1",
-                "psr/log": "^1.0"
+                "psr/log": "^1.0 || ^3.0"
             },
             "type": "library",
             "autoload": {
@@ -1113,9 +1113,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/MediawikiApi/issues",
-                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2"
+                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2.1"
             },
-            "time": "2024-10-09T12:37:20+00:00"
+            "time": "2024-11-02T18:19:39+00:00"
         },
         {
             "name": "wiki-connect/wikibase-api",
