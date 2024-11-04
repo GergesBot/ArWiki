@@ -16,7 +16,7 @@
     ],
     "require": {
         "wiki-connect/mediawiki-api": "^1.0.6",
-        "monolog/monolog": "^2.9",
+        "monolog/monolog": "^3.7",
         "wiki-connect/wikibase-api": "^1.0"
     },
     "require-dev": {
