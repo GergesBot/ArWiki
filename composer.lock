@@ -1070,16 +1070,16 @@
         },
         {
             "name": "wiki-connect/mediawiki-api",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/MediawikiApi.git",
-                "reference": "da85f597c86113b3892ef2e747030db884c87cec"
+                "reference": "932c609b34850d7c079ff2d2b6cbfb4a7c955462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/da85f597c86113b3892ef2e747030db884c87cec",
-                "reference": "da85f597c86113b3892ef2e747030db884c87cec",
+                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/932c609b34850d7c079ff2d2b6cbfb4a7c955462",
+                "reference": "932c609b34850d7c079ff2d2b6cbfb4a7c955462",
                 "shasum": ""
             },
             "require": {
@@ -1112,9 +1112,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/MediawikiApi/issues",
-                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2.1"
+                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2.2"
             },
-            "time": "2024-11-02T18:19:39+00:00"
+            "time": "2024-11-06T15:49:18+00:00"
         },
         {
             "name": "wiki-connect/wikibase-api",
