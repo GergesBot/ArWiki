@@ -2,6 +2,9 @@
 namespace Bot\Tasks;
 
 use WikiConnect\MediawikiApi\Client\Action\Exception\UsageException;
+use WikiConnect\MediawikiApi\DataModel\Content;
+use WikiConnect\MediawikiApi\DataModel\Revision;
+use WikiConnect\MediawikiApi\DataModel\EditInfo;
 use Bot\IO\Util;
 use Bot\IO\ReduceImage;
 use Bot\IO\Logger;
@@ -74,7 +77,14 @@ class ReduceImages extends Task
         }
 
     }
-    
+    public function appendONFR($filename) : void {
+        $page = $this->getPage("ملف:${filename}");
+        $text = $this->readPage($page);
+        $ONFR = "{{إصدارات غير حرة يتيمة|" . date("YmdHis") . "}}\n";
+        $revision = new Revision(new Content($ONFR . $text), $page->getPageIdentifier());
+        $editInfo = new EditInfo("بوت: إصدار ملف غير حر يتيم", true,  true);
+        $this->services->newRevisionSaver()->save($revision, $editInfo);
+    }
     public function RUN(): void {
         $this->running(function(){
             $images = $this->getImages();
@@ -82,6 +92,7 @@ class ReduceImages extends Task
             foreach ($images as $image) {
                 $this->ReduceImage($image["img_name"], $image["img_width"], $image["img_height"]);
                 $this->removeFile($image["img_name"]);
+                $this->appendONFR($image["img_name"]);
                 $i++;
             }
         });
