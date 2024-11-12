@@ -74,7 +74,14 @@ class ReduceImages extends Task
         }
 
     }
-    
+    public function appendONFR($filename) : void {
+        $page = $this->getPage("ملف:${filename}");
+        $text = $this->readPage($page);
+        $ONFR = "{{إصدارات غير حرة يتيمة|" . date("YmdHis") . "}}\n";
+        $revision = new Revision(new Content($ONFR . $text), $page->getPageIdentifier());
+        $editInfo = new EditInfo("بوت: إصدار ملف غير حر يتيم", true,  true);
+        $this->services->newRevisionSaver()->save($revision, $editInfo);
+    }
     public function RUN(): void {
         $this->running(function(){
             $images = $this->getImages();
