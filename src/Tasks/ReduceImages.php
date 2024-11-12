@@ -2,6 +2,9 @@
 namespace Bot\Tasks;
 
 use WikiConnect\MediawikiApi\Client\Action\Exception\UsageException;
+use WikiConnect\MediawikiApi\DataModel\Content;
+use WikiConnect\MediawikiApi\DataModel\Revision;
+use WikiConnect\MediawikiApi\DataModel\EditInfo;
 use Bot\IO\Util;
 use Bot\IO\ReduceImage;
 use Bot\IO\Logger;
