@@ -92,6 +92,7 @@ class ReduceImages extends Task
             foreach ($images as $image) {
                 $this->ReduceImage($image["img_name"], $image["img_width"], $image["img_height"]);
                 $this->removeFile($image["img_name"]);
+                $this->appendONFR($image["img_name"]);
                 $i++;
             }
         });
