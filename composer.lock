@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7b5d29701f439a5d3a63cd79d45f0d1",
+    "content-hash": "fc823b5f1eb9e0e7e078cc25872b222a",
     "packages": [
         {
             "name": "data-values/data-values",
@@ -1612,25 +1612,25 @@
         },
         {
             "name": "data-values/common",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/Common.git",
-                "reference": "9f5e6216ec66ac8f2281351b110bad0eded43e65"
+                "reference": "b21c2bd3b213d6233a645003df4f88956afc52f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/Common/zipball/9f5e6216ec66ac8f2281351b110bad0eded43e65",
-                "reference": "9f5e6216ec66ac8f2281351b110bad0eded43e65",
+                "url": "https://api.github.com/repos/DataValues/Common/zipball/b21c2bd3b213d6233a645003df4f88956afc52f4",
+                "reference": "b21c2bd3b213d6233a645003df4f88956afc52f4",
                 "shasum": ""
             },
             "require": {
                 "data-values/data-values": "~3.0|~2.0|~1.0|~0.1",
                 "data-values/interfaces": "~1.0|~0.2.0",
-                "php": ">=7.2.0"
+                "php": ">=7.4"
             },
             "require-dev": {
-                "mediawiki/mediawiki-codesniffer": "^34",
+                "mediawiki/mediawiki-codesniffer": "^45",
                 "ockcyp/covers-validator": "^1.3.3",
                 "phpunit/phpunit": "~8.0"
             },
@@ -1671,9 +1671,9 @@
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
                 "issues": "https://github.com/DataValues/Common/issues",
-                "source": "https://github.com/DataValues/Common/tree/1.1.0"
+                "source": "https://github.com/DataValues/Common/tree/1.2.0"
             },
-            "time": "2022-10-21T14:13:11+00:00"
+            "time": "2024-12-09T23:03:13+00:00"
         },
         {
             "name": "data-values/geo",
