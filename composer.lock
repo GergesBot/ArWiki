@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5575b7a63b63fdff3408fb0a8c09dc8",
+    "content-hash": "e7b5d29701f439a5d3a63cd79d45f0d1",
     "packages": [
         {
             "name": "data-values/data-values",
@@ -1824,27 +1824,27 @@
         },
         {
             "name": "data-values/number",
-            "version": "0.12.3",
+            "version": "0.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/Number.git",
-                "reference": "0e7e3217d04d48d3b895171e743ac81bf4824735"
+                "reference": "131964ceb9b8d48bb974a7c0246003f54b445560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/Number/zipball/0e7e3217d04d48d3b895171e743ac81bf4824735",
-                "reference": "0e7e3217d04d48d3b895171e743ac81bf4824735",
+                "url": "https://api.github.com/repos/wmde/Number/zipball/131964ceb9b8d48bb974a7c0246003f54b445560",
+                "reference": "131964ceb9b8d48bb974a7c0246003f54b445560",
                 "shasum": ""
             },
             "require": {
                 "data-values/common": "~1.0|~0.4.0|~0.3.0",
                 "data-values/data-values": "~3.0|~2.0|~1.0|~0.1",
                 "data-values/interfaces": "~1.0|~0.2.0",
-                "php": ">=7.2"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "ext-bcmath": "*",
-                "mediawiki/mediawiki-codesniffer": "34.0.0",
+                "mediawiki/mediawiki-codesniffer": "45.0.0",
                 "phpunit/phpunit": "~8.5"
             },
             "type": "library",
@@ -1879,9 +1879,9 @@
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
                 "issues": "https://github.com/wmde/Number/issues",
-                "source": "https://github.com/wmde/Number/tree/0.12.3"
+                "source": "https://github.com/wmde/Number/tree/0.13.0"
             },
-            "time": "2022-10-24T08:49:03+00:00"
+            "time": "2024-12-10T13:34:04+00:00"
         },
         {
             "name": "data-values/time",
