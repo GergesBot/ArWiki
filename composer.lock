@@ -1885,26 +1885,26 @@
         },
         {
             "name": "data-values/time",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/Time.git",
-                "reference": "a2bc08e5e51f5940de843d43469dd3f727fb1d29"
+                "reference": "d8e8cf713fa33f22f973fb06fbbafedd722401eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/Time/zipball/a2bc08e5e51f5940de843d43469dd3f727fb1d29",
-                "reference": "a2bc08e5e51f5940de843d43469dd3f727fb1d29",
+                "url": "https://api.github.com/repos/wmde/Time/zipball/d8e8cf713fa33f22f973fb06fbbafedd722401eb",
+                "reference": "d8e8cf713fa33f22f973fb06fbbafedd722401eb",
                 "shasum": ""
             },
             "require": {
                 "data-values/common": "~1.0|~0.4.0|~0.3.0",
                 "data-values/data-values": "~3.0|~2.0|~1.0|~0.1",
                 "data-values/interfaces": "~1.0|~0.2.0",
-                "php": ">=7.2.0"
+                "php": ">=7.4.0"
             },
             "require-dev": {
-                "mediawiki/mediawiki-codesniffer": "^39",
+                "mediawiki/mediawiki-codesniffer": "^45",
                 "phpunit/phpunit": "~8.5"
             },
             "type": "library",
@@ -1942,9 +1942,9 @@
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
                 "issues": "https://github.com/wmde/Time/issues",
-                "source": "https://github.com/wmde/Time/tree/1.1.2"
+                "source": "https://github.com/wmde/Time/tree/1.2.0"
             },
-            "time": "2022-10-24T09:59:00+00:00"
+            "time": "2024-12-12T12:14:56+00:00"
         },
         {
             "name": "data-values/validators",
