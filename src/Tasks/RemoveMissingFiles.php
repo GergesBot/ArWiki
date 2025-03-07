@@ -21,7 +21,8 @@ class RemoveMissingFiles extends Task
     private function Remove(string $text, string $image): string {
         $patterns = [
             "/(\n?\[\[.*\:".preg_quote($image)."(\|.*)?\]\]$)/um",
-            "/(\n?.*=.*".preg_quote($image)."$)/um"
+            "/(\n?.*=.*".preg_quote($image)."$)/um",
+            "/\n?\|\s*[^=\n]+?\s*=\s*".preg_quote($image)."/u"
         ];
         $output = $text;
         foreach ($patterns as $pattern){
