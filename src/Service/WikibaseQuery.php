@@ -12,7 +12,7 @@ class WikibaseQuery {
 	/**
 	 * @param string $endpoint eg. 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
 	 */
-	public function __construct( string $endpoint, ClientInterface $client = null ) {
+	public function __construct( string $endpoint, ?ClientInterface $client = null ) {
 	    $this->client = $client ?: new Client();
 		$this->endpoint = $endpoint;
 	}
