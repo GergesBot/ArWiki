@@ -19,4 +19,11 @@ AND NOT EXISTS (
     JOIN categorylinks AS cl2 ON pp.page_id = cl2.cl_from
     WHERE pp.page_title = i.img_name
       AND cl2.cl_to = "ملفات_غير_حرة_موسومة_لعدم_تقليل_الدقة"
+)
+AND NOT EXISTS (
+    SELECT 1
+    FROM page AS pp
+    JOIN categorylinks AS cl3 ON pp.page_id = cl3.cl_from
+    WHERE pp.page_title = i.img_name
+      AND cl3.cl_to = "ملفات_غير_حرة_بإصدارات_يتيمة"
 );
