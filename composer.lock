@@ -138,30 +138,30 @@
         },
         {
             "name": "diff/diff",
-            "version": "2.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/Diff.git",
-                "reference": "9f2b65c104b661a02f592f96321fd4c052532742"
+                "reference": "19e5c8871868210ef2943c92bd7c223555b50b3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/Diff/zipball/9f2b65c104b661a02f592f96321fd4c052532742",
-                "reference": "9f2b65c104b661a02f592f96321fd4c052532742",
+                "url": "https://api.github.com/repos/wmde/Diff/zipball/19e5c8871868210ef2943c92bd7c223555b50b3f",
+                "reference": "19e5c8871868210ef2943c92bd7c223555b50b3f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.4"
             },
             "require-dev": {
-                "phpmd/phpmd": "~2.3",
-                "phpunit/phpunit": "~4.8",
-                "squizlabs/php_codesniffer": "~2.3"
+                "mediawiki/mediawiki-codesniffer": "^45",
+                "ockcyp/covers-validator": "~1.0",
+                "phpunit/phpunit": "~8.5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -174,13 +174,13 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Jeroen De Dauw",
                     "email": "jeroendedauw@gmail.com",
-                    "homepage": "http://jeroendedauw.com",
+                    "homepage": "https://www.entropywins.wtf",
                     "role": "Developer"
                 }
             ],
@@ -190,34 +190,35 @@
                 "diff",
                 "diffing",
                 "diffop",
+                "patch",
                 "patching",
                 "wikidata"
             ],
             "support": {
-                "irc": "irc://irc.freenode.net/wikidata",
+                "irc": "irc://irc.freenode.net/wikimedia-de-tech",
                 "issues": "https://github.com/wmde/Diff/issues",
-                "source": "https://github.com/wmde/Diff/tree/2.x"
+                "source": "https://github.com/wmde/Diff/tree/3.4.0"
             },
-            "time": "2018-04-11T10:38:57+00:00"
+            "time": "2025-01-06T09:05:22+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.9.3",
+            "version": "7.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77"
+                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
-                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
+                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.5.3 || ^2.0.3",
-                "guzzlehttp/psr7": "^2.7.0",
+                "guzzlehttp/promises": "^2.3",
+                "guzzlehttp/psr7": "^2.8",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.2 || ^3.0"
@@ -308,7 +309,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.9.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.10.0"
             },
             "funding": [
                 {
@@ -324,20 +325,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T13:37:11+00:00"
+            "time": "2025-08-23T22:36:01+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c"
+                "reference": "481557b130ef3790cf82b713667b43030dc9c957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/7c69f28996b0a6920945dd20b3857e499d9ca96c",
-                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/481557b130ef3790cf82b713667b43030dc9c957",
+                "reference": "481557b130ef3790cf82b713667b43030dc9c957",
                 "shasum": ""
             },
             "require": {
@@ -345,7 +346,7 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
+                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
             },
             "type": "library",
             "extra": {
@@ -391,7 +392,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.2.0"
+                "source": "https://github.com/guzzle/promises/tree/2.3.0"
             },
             "funding": [
                 {
@@ -407,20 +408,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T13:27:01+00:00"
+            "time": "2025-08-22T14:34:08+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16"
+                "reference": "21dc724a0583619cd1652f673303492272778051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c2270caaabe631b3b44c85f99e5a04bbb8060d16",
-                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/21dc724a0583619cd1652f673303492272778051",
+                "reference": "21dc724a0583619cd1652f673303492272778051",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +437,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "http-interop/http-factory-tests": "0.9.0",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
+                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
@@ -507,7 +508,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.7.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.8.0"
             },
             "funding": [
                 {
@@ -523,20 +524,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T12:30:47+00:00"
+            "time": "2025-08-23T21:21:41+00:00"
         },
         {
             "name": "mediawiki/oauthclient",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikimedia/mediawiki-oauthclient-php.git",
-                "reference": "ab3a00e6cd77c62e5f50f82e1d11c4f05a98c7dc"
+                "reference": "15e81485ecd3566c5fddee23bcbdd9dd93c7886b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/mediawiki-oauthclient-php/zipball/ab3a00e6cd77c62e5f50f82e1d11c4f05a98c7dc",
-                "reference": "ab3a00e6cd77c62e5f50f82e1d11c4f05a98c7dc",
+                "url": "https://api.github.com/repos/wikimedia/mediawiki-oauthclient-php/zipball/15e81485ecd3566c5fddee23bcbdd9dd93c7886b",
+                "reference": "15e81485ecd3566c5fddee23bcbdd9dd93c7886b",
                 "shasum": ""
             },
             "require": {
@@ -546,11 +547,11 @@
                 "psr/log": "^1.0||^2.0||^3.0"
             },
             "require-dev": {
-                "mediawiki/mediawiki-codesniffer": "43.0.0",
+                "mediawiki/mediawiki-codesniffer": "47.0.0",
                 "mediawiki/minus-x": "1.1.3",
                 "php-parallel-lint/php-console-highlighter": "1.0.0",
                 "php-parallel-lint/php-parallel-lint": "1.4.0",
-                "phpunit/phpunit": "9.6.16"
+                "phpunit/phpunit": "9.6.21"
             },
             "type": "library",
             "autoload": {
@@ -583,7 +584,7 @@
                 "issues": "https://phabricator.wikimedia.org/tag/oauth/",
                 "source": "https://github.com/wikimedia/oauthclient-php/"
             },
-            "time": "2024-07-19T13:42:24+00:00"
+            "time": "2025-07-08T12:43:45+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -944,24 +945,24 @@
         },
         {
             "name": "serialization/serialization",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/Serialization.git",
-                "reference": "6fa293415e2b70c30c1e673d8bcd04d27dc15e44"
+                "reference": "4403fbab83e0187791d35caef4eef4395811e58d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/Serialization/zipball/6fa293415e2b70c30c1e673d8bcd04d27dc15e44",
-                "reference": "6fa293415e2b70c30c1e673d8bcd04d27dc15e44",
+                "url": "https://api.github.com/repos/wmde/Serialization/zipball/4403fbab83e0187791d35caef4eef4395811e58d",
+                "reference": "4403fbab83e0187791d35caef4eef4395811e58d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=7.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8",
-                "wikibase/wikibase-codesniffer": "^0.2.0"
+                "mediawiki/mediawiki-codesniffer": "^45",
+                "phpunit/phpunit": "^8.5.14"
             },
             "type": "library",
             "extra": {
@@ -977,7 +978,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -999,22 +1000,22 @@
             ],
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
-                "source": "https://github.com/wmde/Serialization/tree/master"
+                "source": "https://github.com/wmde/Serialization/tree/4.1.0"
             },
-            "time": "2017-10-25T11:45:30+00:00"
+            "time": "2024-12-11T14:47:31+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.5.1",
+            "version": "v3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6"
+                "reference": "63afe740e99a13ba87ec199bb07bbdee937a5b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6",
-                "reference": "74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/63afe740e99a13ba87ec199bb07bbdee937a5b62",
+                "reference": "63afe740e99a13ba87ec199bb07bbdee937a5b62",
                 "shasum": ""
             },
             "require": {
@@ -1027,7 +1028,7 @@
                     "name": "symfony/contracts"
                 },
                 "branch-alias": {
-                    "dev-main": "3.5-dev"
+                    "dev-main": "3.6-dev"
                 }
             },
             "autoload": {
@@ -1052,7 +1053,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.1"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.6.0"
             },
             "funding": [
                 {
@@ -1068,20 +1069,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-25T14:20:29+00:00"
+            "time": "2024-09-25T14:21:43+00:00"
         },
         {
             "name": "wiki-connect/mediawiki-api",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/MediawikiApi.git",
-                "reference": "61e170fdd076497037848a43f9e00e1448e73dad"
+                "reference": "ad9196060c4aaf64adc4c39251545c9c8da814c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/61e170fdd076497037848a43f9e00e1448e73dad",
-                "reference": "61e170fdd076497037848a43f9e00e1448e73dad",
+                "url": "https://api.github.com/repos/wiki-connect/MediawikiApi/zipball/ad9196060c4aaf64adc4c39251545c9c8da814c8",
+                "reference": "ad9196060c4aaf64adc4c39251545c9c8da814c8",
                 "shasum": ""
             },
             "require": {
@@ -1114,22 +1115,22 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/MediawikiApi/issues",
-                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2.3"
+                "source": "https://github.com/wiki-connect/MediawikiApi/tree/v1.2.4"
             },
-            "time": "2025-05-13T16:50:19+00:00"
+            "time": "2025-11-18T13:20:06+00:00"
         },
         {
             "name": "wiki-connect/wikibase-api",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/WikibaseApi.git",
-                "reference": "3f4cbbc3229ce00a5d5b7490b2443ffa996527e5"
+                "reference": "d727f5fd81a15ba5960577d79de771f8c0207a40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/3f4cbbc3229ce00a5d5b7490b2443ffa996527e5",
-                "reference": "3f4cbbc3229ce00a5d5b7490b2443ffa996527e5",
+                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/d727f5fd81a15ba5960577d79de771f8c0207a40",
+                "reference": "d727f5fd81a15ba5960577d79de771f8c0207a40",
                 "shasum": ""
             },
             "require": {
@@ -1138,17 +1139,17 @@
                 "wiki-connect/mediawiki-api": "^1.0.7",
                 "wikibase/data-model": "~9.2||~8.0",
                 "wikibase/data-model-serialization": "~2.0",
-                "wikibase/data-model-services": "~3.0"
+                "wikibase/data-model-services": "~3.0 || ~5.0"
             },
             "require-dev": {
-                "data-values/common": "~0.4.0",
+                "data-values/common": "~0.4.0 || ~1.1.0 || ~1.2.0",
                 "data-values/data-values": "~2.0",
                 "data-values/geo": "~4.0",
-                "data-values/number": "~0.10.0",
+                "data-values/number": "~0.10.0 || ~0.12.0 || ~0.13.0",
                 "data-values/serialization": "~1.0",
                 "data-values/time": "~1.0",
-                "data-values/validators": "~0.1.0",
-                "mediawiki/mediawiki-codesniffer": "~38.0"
+                "data-values/validators": "~0.1.0 || ~1.0.0",
+                "mediawiki/mediawiki-codesniffer": "~38.0 || ~44.0 || ~45.0 || ~48.0"
             },
             "type": "library",
             "autoload": {
@@ -1176,9 +1177,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/WikibaseApi/issues",
-                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.3"
+                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.4"
             },
-            "time": "2024-07-17T10:52:37+00:00"
+            "time": "2025-11-18T13:16:41+00:00"
         },
         {
             "name": "wikibase/data-model",
@@ -1325,34 +1326,34 @@
         },
         {
             "name": "wikibase/data-model-services",
-            "version": "3.15.0",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wmde/WikibaseDataModelServices.git",
-                "reference": "f1baad13984a5ee36f0d4aec7aee94898cd1cc89"
+                "reference": "8f71e974016ae3566df245496318320b7cedcd47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wmde/WikibaseDataModelServices/zipball/f1baad13984a5ee36f0d4aec7aee94898cd1cc89",
-                "reference": "f1baad13984a5ee36f0d4aec7aee94898cd1cc89",
+                "url": "https://api.github.com/repos/wmde/WikibaseDataModelServices/zipball/8f71e974016ae3566df245496318320b7cedcd47",
+                "reference": "8f71e974016ae3566df245496318320b7cedcd47",
                 "shasum": ""
             },
             "require": {
-                "data-values/data-values": "~2.0|~1.0",
-                "diff/diff": "~2.3",
-                "php": ">=5.6.99",
-                "wikibase/data-model": "~9.0|~8.0|~7.0|~6.3",
-                "wikimedia/assert": "~0.2.2|~0.3.0|~0.4.0"
+                "data-values/data-values": "~3.0|~2.0|~1.0",
+                "diff/diff": "~3.2",
+                "php": ">=7.2",
+                "wikibase/data-model": "~9.0|~8.0",
+                "wikimedia/assert": "~0.2.2|~0.3.0|~0.4.0|~0.5.0"
             },
             "require-dev": {
+                "mediawiki/mediawiki-codesniffer": "34.0.0",
                 "phpmd/phpmd": "~2.3",
-                "phpunit/phpunit": "~5.7",
-                "wikibase/wikibase-codesniffer": "^0.5.0"
+                "phpunit/phpunit": "~8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "5.3-dev"
                 }
             },
             "autoload": {
@@ -1366,13 +1367,13 @@
             ],
             "authors": [
                 {
-                    "name": "The Wikidata team",
-                    "role": "Developer"
-                },
-                {
                     "name": "Jeroen De Dauw",
                     "email": "jeroendedauw@gmail.com",
                     "homepage": "https://www.entropywins.wtf/"
+                },
+                {
+                    "name": "The Wikidata team",
+                    "role": "Developer"
                 }
             ],
             "description": "Services around the Wikibase DataModel",
@@ -1385,34 +1386,34 @@
             "support": {
                 "irc": "irc://irc.freenode.net/wikidata",
                 "issues": "https://github.com/wmde/WikibaseDataModelServices/issues",
-                "source": "https://github.com/wmde/WikibaseDataModelServices/tree/3.15.0"
+                "source": "https://github.com/wmde/WikibaseDataModelServices/tree/5.4.0"
             },
-            "time": "2019-04-23T22:40:16+00:00"
+            "time": "2021-04-23T13:18:15+00:00"
         },
         {
             "name": "wikimedia/assert",
-            "version": "v0.4.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikimedia/Assert.git",
-                "reference": "27c99b1f1ab106838b7acb695fa2e03efaa28e66"
+                "reference": "27c983fddac1197dc37f6a7cec00fc02861529cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/Assert/zipball/27c99b1f1ab106838b7acb695fa2e03efaa28e66",
-                "reference": "27c99b1f1ab106838b7acb695fa2e03efaa28e66",
+                "url": "https://api.github.com/repos/wikimedia/Assert/zipball/27c983fddac1197dc37f6a7cec00fc02861529cd",
+                "reference": "27c983fddac1197dc37f6a7cec00fc02861529cd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.99"
+                "php": ">=7.2.9"
             },
             "require-dev": {
-                "jakub-onderka/php-console-highlighter": "0.3.2",
-                "jakub-onderka/php-parallel-lint": "1.0.0",
-                "mediawiki/mediawiki-codesniffer": "23.0.0",
-                "mediawiki/minus-x": "0.3.1",
-                "ockcyp/covers-validator": "0.5.1 || 0.6.1",
-                "phpunit/phpunit": "4.8.36 || ^6.5"
+                "mediawiki/mediawiki-codesniffer": "38.0.0",
+                "mediawiki/minus-x": "1.1.1",
+                "ockcyp/covers-validator": "1.3.3",
+                "php-parallel-lint/php-console-highlighter": "0.5.0",
+                "php-parallel-lint/php-parallel-lint": "1.3.1",
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "autoload": {
@@ -1443,9 +1444,9 @@
                 "qa"
             ],
             "support": {
-                "source": "https://github.com/wikimedia/Assert/tree/master"
+                "source": "https://github.com/wikimedia/Assert/tree/v0.5.1"
             },
-            "time": "2019-01-21T19:22:34+00:00"
+            "time": "2021-12-21T11:46:59+00:00"
         }
     ],
     "packages-dev": [
@@ -2464,86 +2465,6 @@
                 }
             ],
             "time": "2025-06-17T22:17:01+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php80",
-            "version": "v1.32.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "0cc9dd0f17f61d8131e7df6b84bd344899fe2608"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/0cc9dd0f17f61d8131e7df6b84bd344899fe2608",
-                "reference": "0cc9dd0f17f61d8131e7df6b84bd344899fe2608",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ion Bazan",
-                    "email": "ion.bazan@gmail.com"
-                },
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.32.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-01-02T08:10:11+00:00"
         }
     ],
     "aliases": [],
