@@ -2331,11 +2331,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.32",
+            "version": "2.1.35",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e126cad1e30a99b137b8ed75a85a676450ebb227",
-                "reference": "e126cad1e30a99b137b8ed75a85a676450ebb227",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/72f843c7f59d3aac0b7510f5e70913a9b72a8e88",
+                "reference": "72f843c7f59d3aac0b7510f5e70913a9b72a8e88",
                 "shasum": ""
             },
             "require": {
@@ -2380,7 +2380,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-11T15:18:17+00:00"
+            "time": "2026-01-20T17:33:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
