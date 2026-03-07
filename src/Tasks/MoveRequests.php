@@ -44,7 +44,7 @@ class MoveRequests extends Task
         }
     }
     private function getSummary(): string {
-        return preg_replace("/<!--.*?-->/", "", trim($this->readPage("ويكيبيديا:طلبات نقل عبر البوت/ملخص التعديل")));
+        return preg_replace("/<!--.*?-->/", "", trim($this->readPage("ويكيبيديا:طلبات النقل بالبوت/ملخص التعديل")));
     }
     private function getTalkPage(string $title): string | false
     {
@@ -76,7 +76,7 @@ class MoveRequests extends Task
         return false;
     }
     private function getSittings(): array {
-        $text = $this->readPage("ويكيبيديا:طلبات نقل عبر البوت/خيارات البوت");
+        $text = $this->readPage("ويكيبيديا:طلبات النقل بالبوت/خيارات البوت");
         return [
             "movesubpages" => $this->getValueTemplate($text, "move-subpages") == "yes",
             "noredirect" => $this->getValueTemplate($text, "leave-redirect") == "no",
@@ -144,14 +144,14 @@ class MoveRequests extends Task
 
     }
     private function clearRequests(): void {
-        $page = $this->getPage("ويكيبيديا:طلبات نقل عبر البوت");
+        $page = $this->getPage("ويكيبيديا:طلبات النقل بالبوت");
         $content = new Content("{{/مقدمة}}");
         $revision = new Revision($content, $page->getPageIdentifier());
         $editInfo = new EditInfo("بوت: انتهت عملية النقل", true, true);
         $this->services->newRevisionSaver()->save($revision, $editInfo);
     }
     private function init(): void {
-        $page = $this->getPage("ويكيبيديا:طلبات نقل عبر البوت");
+        $page = $this->getPage("ويكيبيديا:طلبات النقل بالبوت");
         $latestUser = $page->getRevisions()->getLatest()->getUser();
         if ($this->userCheck($latestUser)) {
             $text = $this->readPage($page);
