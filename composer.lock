@@ -1121,16 +1121,16 @@
         },
         {
             "name": "wiki-connect/wikibase-api",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wiki-connect/WikibaseApi.git",
-                "reference": "d727f5fd81a15ba5960577d79de771f8c0207a40"
+                "reference": "beef7b913977a88d66c7b9ea12ee45e7127ff072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/d727f5fd81a15ba5960577d79de771f8c0207a40",
-                "reference": "d727f5fd81a15ba5960577d79de771f8c0207a40",
+                "url": "https://api.github.com/repos/wiki-connect/WikibaseApi/zipball/beef7b913977a88d66c7b9ea12ee45e7127ff072",
+                "reference": "beef7b913977a88d66c7b9ea12ee45e7127ff072",
                 "shasum": ""
             },
             "require": {
@@ -1177,9 +1177,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wiki-connect/WikibaseApi/issues",
-                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.4"
+                "source": "https://github.com/wiki-connect/WikibaseApi/tree/1.0.5"
             },
-            "time": "2025-11-18T13:16:41+00:00"
+            "time": "2026-02-01T14:28:16+00:00"
         },
         {
             "name": "wikibase/data-model",
@@ -2477,5 +2477,5 @@
     "platform-overrides": {
         "php": "8.1.29"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
